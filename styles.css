@@ -1,0 +1,126 @@
+:root {
+    --bg: #ececeb;
+    --text: #0d0d0d;
+    --accent: #294a1d; 
+    
+    --f-serif: 'Cormorant Garamond', serif;
+    --f-sans: 'Syncopate', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
+html { background-color: var(--bg); }
+body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; background: var(--bg); }
+::selection { background: var(--accent); color: #fff; }
+
+/* Global Image Styles */
+.hero-image, .about-image-overlap, .port-item {
+    /* Filrt czarno-biały usunięty by wydobyć kolory */
+    transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+    position: fixed; top: 0; left: 0; width: 12px; height: 12px;
+    background: var(--accent); border-radius: 50%;
+    transform: translate(-50%, -50%); pointer-events: none; z-index: 9999;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+.cursor-follower {
+    position: fixed; top: 0; left: 0; width: 45px; height: 45px;
+    border: 1px solid var(--accent); border-radius: 50%;
+    transform: translate(-50%, -50%); pointer-events: none; z-index: 9998;
+    transition: 0.15s ease-out;
+}
+.cursor.hover-text { width: 60px; height: 60px; mix-blend-mode: difference; background: white; }
+.cursor.hover-image { width: 90px; height: 90px; mix-blend-mode: normal; background: rgba(41,74,29, 0.85); }
+.cursor.hover-image::after { content: 'VIEW'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: var(--f-sans); font-size: 11px; letter-spacing: 2px;}
+
+/* CORNER NAV */
+.corner-link {
+    position: fixed; z-index: 1000; text-decoration: none; color: var(--text);
+    font-family: var(--f-sans); font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 0.15em; mix-blend-mode: difference; color: #fff;
+    transition: transform 0.3s ease;
+}
+.corner-link:hover { transform: scale(1.1); }
+.top-left { top: 40px; left: 40px; font-weight: 700; font-size: 1.2rem; }
+.top-right { top: 40px; right: 40px; }
+.bottom-left { bottom: 40px; left: 40px; }
+.bottom-right { bottom: 40px; right: 40px; }
+
+/* HERO */
+.hero { height: 100vh; width: 100vw; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-image-wrapper { position: absolute; width: 35vw; height: 65vh; z-index: 1; overflow: hidden; }
+.hero-image { width: 100%; height: 100%; background-size: cover; background-position: center; transform: scale(1.2); }
+.huge-title { position: absolute; z-index: 2; display: flex; justify-content: space-between; width: 95vw; font-family: var(--f-sans); font-size: clamp(8rem, 18vw, 25rem); color: var(--text); mix-blend-mode: overlay; pointer-events: none; line-height: 1; }
+.hero-sub { position: absolute; bottom: 8%; right: 8%; text-align: right; font-family: var(--f-serif); font-size: 1.5rem; font-style: italic; z-index: 3; }
+
+/* ABOUT */
+.about { min-height: 150vh; position: relative; padding: 20vh 5vw; }
+.creative-text { position: sticky; top: 20vh; font-family: var(--f-sans); font-size: clamp(5rem, 12vw, 15rem); line-height: 0.8; z-index: 1; mix-blend-mode: difference; color: white; }
+.creative-text i { font-family: var(--f-serif); font-style: italic; font-weight: 300; text-transform: lowercase; font-size: 1.1em; }
+.about-image-overlap { position: absolute; top: 40vh; right: 10vw; width: 45vw; height: 75vh; background-size: cover; background-position: center; z-index: 2; box-shadow: 0 40px 80px rgba(0,0,0,0.15); }
+.about-description { position: absolute; top: 110vh; left: 35vw; width: 40vw; z-index: 3; font-size: 2rem; font-weight: 300; line-height: 1.4; color: var(--text); }
+
+/* PORTFOLIO */
+.portfolio { height: 100vh; overflow: hidden; background: #0f1210; color: #fff; }
+.portfolio-scroll-container { display: flex; align-items: center; height: 100vh; width: max-content; padding: 0 15vw; gap: 15vw; }
+.port-item { background-size: cover; background-position: center; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.port-item:hover { transform: scale(0.97); }
+
+.i1 { width: 35vw; height: 75vh; margin-top: -15vh;}
+.i2 { width: 30vw; height: 50vh; margin-top: 25vh; }
+.i3 { width: 55vw; height: 65vh; }
+.i4 { width: 30vw; height: 85vh; margin-top: -8vh; }
+.i5 { width: 45vw; height: 60vh; }
+
+.port-text { font-family: var(--f-sans); font-size: clamp(3rem, 7vw, 10rem); line-height: 0.9; color: var(--bg); }
+.port-text i { font-family: var(--f-serif); font-weight: 300; text-transform: lowercase; color: #b5c7ad; }
+
+/* REVIEWS */
+.reviews-section { min-height: 80vh; background: var(--bg); padding-top: 15vh; padding-bottom: 10vh; overflow: hidden; position: relative; border-bottom: 2px solid rgba(0,0,0,0.05); }
+.finale-marquee { white-space: nowrap; font-family: var(--f-sans); font-size: 4.5rem; color: transparent; -webkit-text-stroke: 1px rgba(0,0,0,0.2); }
+.marquee-inner { display: inline-block; animation: marquee 40s linear infinite; }
+.marquee-inner span { display: inline-block; padding-right: 50px; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.reviews-container { display: flex; flex-direction: column; gap: 15vh; padding: 10vh 15vw 0 15vw; }
+.review-block { max-width: 50vw; align-self: flex-start; }
+.review-block:nth-child(even) { align-self: flex-end; text-align: right; }
+.review-block .quote { font-size: clamp(2rem, 3.5vw, 4rem); font-style: italic; line-height: 1.25; margin-bottom: 2rem; color: var(--text); }
+.review-block .author { font-family: var(--f-sans); font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: var(--accent); }
+
+/* CONTACT FORM */
+.contact-section { min-height: 100vh; background: var(--text); color: var(--bg); padding: 15vh 10vw; display: flex; flex-direction: column; justify-content: center; }
+.contact-header .creative-text { color: var(--bg); mix-blend-mode: normal; margin-bottom: 8vh; font-size: clamp(4rem, 10vw, 12rem); }
+.contact-form-container { width: 60vw; margin-left: auto; }
+.form-row { display: flex; gap: 3rem; margin-bottom: 2rem; }
+.form-row input { width: 50%; }
+.elegant-form input, .elegant-form textarea { width: 100%; padding: 1.5rem 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); font-family: var(--f-serif); font-size: 1.5rem; color: var(--bg); transition: border-color 0.4s; border-radius: 0; outline: none; }
+.elegant-form input::placeholder, .elegant-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+.elegant-form input:focus, .elegant-form textarea:focus { border-bottom-color: var(--accent); }
+.elegant-form textarea { margin-bottom: 3rem; resize: none; margin-top: 1rem;}
+.submit-btn { background: transparent; color: var(--bg); font-family: var(--f-sans); font-size: 2.5rem; font-weight: 700; border: none; outline: none; text-transform: uppercase; cursor: none !important; text-align: right; width: 100%; display: block; transition: color 0.4s; }
+.submit-btn:hover { color: var(--accent); }
+
+/* MOBILE OVERRIDES */
+@media (max-width: 900px) {
+    .huge-title { font-size: 25vw; justify-content: center; }
+    .top-left, .top-right, .bottom-left, .bottom-right { position: relative; top: auto; bottom: auto; left: auto; right: auto; margin: 10px; color: var(--text); mix-blend-mode: normal; display: inline-block;}
+    .creative-text { mix-blend-mode: normal; color: var(--text); position: relative; top: 0; font-size: 5rem;}
+    .about-image-overlap { position: relative; width: 100%; top: 0; right: 0; height: 50vh; margin-top: 3rem; }
+    .about-description { position: relative; top: 0; left: 0; width: 100%; margin-top: 2rem; font-size: 1.2rem; }
+    
+    .portfolio { height: auto; overflow: visible; padding-bottom: 10vh; }
+    .portfolio-scroll-container { flex-direction: column; height: auto; width: 100vw; padding: 10vh 5vw; gap: 8vh; }
+    .port-item { width: 100% !important; height: 60vh !important; margin: 0 !important; }
+    .port-text { font-size: 3rem; text-align: center; margin: 5vh 0; mix-blend-mode: normal;}
+    
+    .reviews-container { padding: 5vh 5vw; }
+    .review-block { max-width: 100%; }
+    
+    .contact-form-container { width: 100%; }
+    .form-row { flex-direction: column; gap: 2rem; }
+    .form-row input { width: 100%; }
+    .contact-section { padding: 10vh 5vw; }
+}
