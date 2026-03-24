@@ -1,41 +1,35 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASPEKT | Nieszablonowa Fotografia</title>
+    <title>ASPEKT | Unconventional Photography</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Syncopate for extreme width, Garamond for elegant serif contrast -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     
-    <!-- Flatpickr (Custom UI Date Picker) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/pl.js"></script>
     
     <link rel="stylesheet" href="styles.css">
     <script defer src="animations.js"></script>
 </head>
 <body>
-    <!-- Nieszablonowy Kursor (Ukrywamy myszkę, podążamy kręgami) -->
+
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Pływająca w rogach ekranu nawigacja (Brak przewidywalnego menu u góry) -->
     <a href="#" class="corner-link top-left logo" data-hover="text">ASPEKT</a>
-    <a href="#contact" class="corner-link top-right" data-hover="text">Kontakt</a>
-    <a href="#about" class="corner-link bottom-left" data-hover="text">Kim jestem</a>
-    <a href="#portfolio" class="corner-link bottom-right" data-hover="text">Wybrane Prace</a>
+    <a href="#contact" class="corner-link top-right" data-hover="text">Contact</a>
+    <a href="#about" class="corner-link bottom-left" data-hover="text">The Artist</a>
+    <a href="#portfolio" class="corner-link bottom-right" data-hover="text">Selected Works</a>
 
-    <!-- Ekstremalny Hero Section -->
     <section class="hero">
         <div class="hero-image-wrapper">
              <div class="hero-image" style="background-image: url('images/ASPEKT-pEK-210.jpg');"></div>
@@ -44,93 +38,82 @@
             <span>A</span><span>S</span><span>P</span><span>E</span><span>K</span><span>T</span>
         </h1>
         <div class="hero-sub">
-            <p>Konwencja to<br>tylko sugestia.</p>
+            <p>Convention is<br>just a suggestion.</p>
         </div>
     </section>
 
-    <!-- Asymetryczna, agresywna typografia O Mnie -->
     <section id="about" class="about">
         <div class="about-container">
             <h2 class="creative-text">
-                ŁA<br>PIĘ<br><i>ulotność.</i>
+                CATCH<br>THE<br><i>fleeting.</i>
             </h2>
             <div class="about-image-overlap" style="background-image: url('images/ASPEKT-pEK-264.jpg');" data-hover="image"></div>
             <div class="about-description">
-                <p>27 lat. Białystok. Cała Polska.</p>
-                <p><br>Uciekam od póz. Szukam <i>prawdy</i> ukrytej za przymkniętymi powiekami i w szybkich, nerwowych uśmiechach.</p>
+                <p>27 years old. Bialystok. Worldwide.</p>
+                <p><br>I run away from poses. I search for the <i>truth</i> hidden behind half-closed eyelids and quick, nervous smiles.</p>
             </div>
         </div>
     </section>
 
-    <!-- Abstrakcyjna, asymetryczna galeria pozioma -->
     <section id="portfolio" class="portfolio">
         <div class="portfolio-scroll-container">
-            
             <div class="port-item i1" style="background-image: url('images/ASPEKT-pEK-265.jpg');" data-hover="image"></div>
-            
             <div class="port-text t1">
-                <h2>CZYSTE<br><i>Emocje</i></h2>
+                <h2>PURE<br><i>Emotions</i></h2>
             </div>
-            
-            <div class="port-item i2" style="background-image: url('images/ASPEKT-pEK-138.jpg');" data-hover="image"></div>
+            <div class="port-item i2" style="background-image: url('images/ASPEKT-pEK-189.jpg');" data-hover="image"></div>
             <div class="port-item i3" style="background-image: url('images/ASPEKT-pEK-17.jpg');" data-hover="image"></div>
-            
             <div class="port-text t2">
-                <h3>Każdy uśmiech to<br><i>inna</i> historia.</h3>
+                <h3>Every smile is<br>a <i>different</i> story.</h3>
             </div>
-            
             <div class="port-item i4" style="background-image: url('images/ASPEKT-pEK-254.jpg');" data-hover="image"></div>
             <div class="port-item i5" style="background-image: url('images/ASPEKT-pEK-41.jpg');" data-hover="image"></div>
-            
         </div>
     </section>
 
-    <!-- SEPARATED REVIEWS SECTION -->
     <section id="reviews" class="reviews-section">
         <div class="finale-marquee">
              <div class="marquee-inner">
-                 <span>OPINIE PARY MŁODE — OPINIE PARY MŁODE — OPINIE PARY MŁODE — OPINIE PARY MŁODE — </span>
+                 <span>BRIDE & GROOM REVIEWS — BRIDE & GROOM REVIEWS — BRIDE & GROOM REVIEWS — </span>
              </div>
         </div>
         <div class="reviews-container">
             <div class="review-block">
-                <p class="quote">"Totalny sztos. Sesja wyglądała jak z dobrego amerykańskiego filmu. Zero pozerstwa. Genialne wyczucie kunsztu i editorialowej formy."</p>
-                <p class="author">- Julia i Michał</p>
+                <p class="quote">"Absolute masterpiece. The session looked like a good American movie. Zero posing. Brilliant sense of craftsmanship and editorial form."</p>
+                <p class="author">- Julia & Michael</p>
             </div>
             <div class="review-block">
-                <p class="quote">"Krzysztof zamroził w czasie to, czego my w tym pędzie nawet nie zauważyliśmy. Najpiękniejsza pamiątka na całe życie, bez cienia sztuczności."</p>
-                <p class="author">- Ania i Tomek</p>
+                <p class="quote">"Christopher froze in time what we didn't even notice in the rush. The most beautiful souvenir for a lifetime, without a shadow of artificiality."</p>
+                <p class="author">- Anna & Tom</p>
             </div>
         </div>
     </section>
 
-    <!-- SEPARATED CONTACT SECTION -->
     <section id="contact" class="contact-section">
         <div class="contact-header">
-            <h2 class="creative-text" style="position:relative; top:0;">napisz<br><i>do mnie.</i></h2>
+            <h2 class="creative-text" style="position:relative; top:0;">write<br><i>to me.</i></h2>
         </div>
         <div class="contact-form-container">
             <form id="ajaxContactForm" class="elegant-form" action="https://formsubmit.co/krzysiek.ilendo@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="ASPEKT - Nowe zapytanie przez stronę!">
+                <input type="hidden" name="_subject" value="ASPEKT - New website inquiry!">
                 <input type="hidden" name="_captcha" value="false">
                 <div class="form-row">
-                    <input type="text" name="Imiona" placeholder="Wasze imiona" required>
-                    <input type="date" name="Data_Slubu" placeholder="Data ślubu" class="date-input">
+                    <input type="text" name="Names" placeholder="Your names" required>
+                    <input type="date" name="Wedding_Date" placeholder="Wedding date" class="date-input">
                 </div>
                 <div class="form-row">
-                    <input type="text" name="Lokalizacja" placeholder="Lokalizacja (Sala / Miasto)">
-                    <input type="email" name="Email_Klienta" placeholder="Adres e-mail" required>
+                    <input type="text" name="Location" placeholder="Location (Venue / City)">
+                    <input type="email" name="Client_Email" placeholder="Email address" required>
                 </div>
-                <textarea name="Wiadomosc" rows="3" placeholder="Opowiedzcie mi trochę o swoim dniu..."></textarea>
-                <button type="submit" class="submit-btn" data-hover="text">Wyślij wiadomość</button>
+                <textarea name="Message" rows="3" placeholder="Tell me a bit about your day..."></textarea>
+                <button type="submit" class="submit-btn" data-hover="text">Send message</button>
             </form>
         </div>
     </section>
 
-    <!-- INSTAGRAM FOOTER -->
     <footer class="insta-footer">
         <div class="insta-header">
-            <h3>ASPEKT NA INSTAGRAMIE</h3>
+            <h3>ASPEKT ON INSTAGRAM</h3>
             <a href="https://instagram.com/aspektfotografia" target="_blank" data-hover="text" class="insta-link">@aspektfotografia</a>
         </div>
         <div class="insta-grid">
@@ -141,8 +124,7 @@
         </div>
     </footer>
 
-    <!-- STYLISH SUCCESS POPUP -->
-    <div id="successPopup" class="success-popup">BAJKA, ZGŁOSZENIE WYSŁANE.</div>
+    <div id="successPopup" class="success-popup">PERFECT, MESSAGE SENT.</div>
 
 </body>
 </html>
