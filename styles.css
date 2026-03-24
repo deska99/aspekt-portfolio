@@ -99,9 +99,21 @@ body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; back
 .elegant-form input, .elegant-form textarea { width: 100%; padding: 1.5rem 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); font-family: var(--f-serif); font-size: 1.5rem; color: var(--bg); transition: border-color 0.4s; border-radius: 0; outline: none; }
 .elegant-form input::placeholder, .elegant-form textarea::placeholder { color: rgba(255,255,255,0.4); }
 .elegant-form input:focus, .elegant-form textarea:focus { border-bottom-color: var(--accent); }
+/* Date input styling to make picker icon readable */
+.elegant-form input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer !important; opacity: 0.5;}
 .elegant-form textarea { margin-bottom: 3rem; resize: none; margin-top: 1rem;}
 .submit-btn { background: transparent; color: var(--bg); font-family: var(--f-sans); font-size: 2.5rem; font-weight: 700; border: none; outline: none; text-transform: uppercase; cursor: none !important; text-align: right; width: 100%; display: block; transition: color 0.4s; }
 .submit-btn:hover { color: var(--accent); }
+
+/* INSTA FOOTER */
+.insta-footer { background: var(--bg); padding: 10vh 5vw 5vh 5vw; border-top: 2px solid rgba(0,0,0,0.05); }
+.insta-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5vh; }
+.insta-header h3 { font-family: var(--f-sans); font-size: clamp(1rem, 2vw, 2rem); font-weight: 700; color: var(--text); }
+.insta-link { font-family: var(--f-serif); font-size: clamp(2rem, 3.5vw, 4rem); font-style: italic; color: var(--accent); text-decoration: none; transition: color 0.3s; }
+.insta-link:hover { color: var(--text); }
+.insta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vw; }
+.insta-post { display: block; width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; filter: grayscale(100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s; }
+.insta-post:hover { transform: scale(0.96); filter: grayscale(0%); }
 
 /* MOBILE OVERRIDES */
 @media (max-width: 900px) {
@@ -119,8 +131,14 @@ body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; back
     .reviews-container { padding: 5vh 5vw; }
     .review-block { max-width: 100%; }
     
+    .finale-content { flex-direction: column; align-items: flex-start; gap: 5rem; }
+    .reviews-col { width: 100%; }
+    
     .contact-form-container { width: 100%; }
-    .form-row { flex-direction: column; gap: 2rem; }
-    .form-row input { width: 100%; }
+    .form-row { flex-direction: column; gap: 2rem; margin-bottom: 0; }
+    .form-row input { width: 100%; margin-bottom: 2rem;}
     .contact-section { padding: 10vh 5vw; }
+    
+    .insta-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 4vw; }
 }

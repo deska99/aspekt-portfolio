@@ -84,3 +84,28 @@ gsap.from(".elegant-form input, .elegant-form textarea, .submit-btn", {
     scrollTrigger: { trigger: ".elegant-form", start: "top 85%" },
     duration: 1.2, y: 30, opacity: 0, stagger: 0.15, ease: "power3.out"
 });
+
+// Instagram Grid Animation
+gsap.from(".insta-post", {
+    scrollTrigger: { trigger: ".insta-grid", start: "top 95%" },
+    duration: 1.2, y: 40, opacity: 0, stagger: 0.1, ease: "power3.out"
+});
+
+// LOGIC: Set Date Input Min and Max Options
+const dateInput = document.querySelector('.date-input');
+if(dateInput) {
+    const today = new Date();
+    const maxDate = new Date();
+    maxDate.setFullYear(today.getFullYear() + 4);
+    
+    // YYYY-MM-DD
+    const formatDate = (date) => {
+        let month = '' + (date.getMonth() + 1), day = '' + date.getDate(), year = date.getFullYear();
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+        return [year, month, day].join('-');
+    };
+    
+    dateInput.min = formatDate(today);
+    dateInput.max = formatDate(maxDate);
+}

@@ -104,20 +104,36 @@
             <h2 class="creative-text" style="position:relative; top:0;">napisz<br><i>do mnie.</i></h2>
         </div>
         <div class="contact-form-container">
-            <form class="elegant-form">
+            <form class="elegant-form" action="https://formsubmit.co/krzysiek.ilendo@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="ASPEKT - Nowe zapytanie przez stronę!">
+                <input type="hidden" name="_captcha" value="false">
                 <div class="form-row">
-                    <input type="text" placeholder="Wasze imiona" required>
-                    <input type="text" placeholder="Data ślubu" class="date-input">
+                    <input type="text" name="Imiona" placeholder="Wasze imiona" required>
+                    <input type="date" name="Data_Slubu" placeholder="Data ślubu" class="date-input">
                 </div>
                 <div class="form-row">
-                    <input type="text" placeholder="Lokalizacja (Sala / Miasto)">
-                    <input type="email" placeholder="Adres e-mail" required>
+                    <input type="text" name="Lokalizacja" placeholder="Lokalizacja (Sala / Miasto)">
+                    <input type="email" name="Email_Klienta" placeholder="Adres e-mail" required>
                 </div>
-                <textarea rows="3" placeholder="Opowiedzcie mi trochę o swoim dniu..."></textarea>
+                <textarea name="Wiadomosc" rows="3" placeholder="Opowiedzcie mi trochę o swoim dniu..."></textarea>
                 <button type="submit" class="submit-btn" data-hover="text">Wyślij wiadomość</button>
             </form>
         </div>
     </section>
+
+    <!-- INSTAGRAM FOOTER -->
+    <footer class="insta-footer">
+        <div class="insta-header">
+            <h3>ASPEKT NA INSTAGRAMIE</h3>
+            <a href="https://instagram.com/aspektfotografia" target="_blank" data-hover="text" class="insta-link">@aspektfotografia</a>
+        </div>
+        <div class="insta-grid">
+            <a href="https://instagram.com/aspektfotografia" target="_blank" class="insta-post" style="background-image: url('images/ASPEKT-pEK-216.jpg');" data-hover="image"></a>
+            <a href="https://instagram.com/aspektfotografia" target="_blank" class="insta-post" style="background-image: url('images/ASPEKT-pEK-214.jpg');" data-hover="image"></a>
+            <a href="https://instagram.com/aspektfotografia" target="_blank" class="insta-post" style="background-image: url('images/ASPEKT-pEK-179.jpg');" data-hover="image"></a>
+            <a href="https://instagram.com/aspektfotografia" target="_blank" class="insta-post" style="background-image: url('images/ASPEKT-pEK-225.jpg');" data-hover="image"></a>
+        </div>
+    </footer>
 
 </body>
 </html>
