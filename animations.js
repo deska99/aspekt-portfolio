@@ -91,23 +91,21 @@ gsap.from(".insta-post", {
     duration: 1.2, y: 40, opacity: 0, stagger: 0.1, ease: "power3.out"
 });
 
-// LOGIC: Set Date Input Min and Max Options
+// FLATPICKR: Custom Elegant Date Picker
 const dateInput = document.querySelector('.date-input');
 if(dateInput) {
-    const today = new Date();
     const maxDate = new Date();
-    maxDate.setFullYear(today.getFullYear() + 4);
-    
-    // YYYY-MM-DD
-    const formatDate = (date) => {
-        let month = '' + (date.getMonth() + 1), day = '' + date.getDate(), year = date.getFullYear();
-        if (month.length < 2) month = '0' + month;
-        if (day.length < 2) day = '0' + day;
-        return [year, month, day].join('-');
-    };
-    
-    dateInput.min = formatDate(today);
-    dateInput.max = formatDate(maxDate);
+    maxDate.setFullYear(maxDate.getFullYear() + 4);
+
+    flatpickr(dateInput, {
+        minDate: "today",
+        maxDate: maxDate,
+        locale: "pl", // Polska lokalizacja 
+        altInput: true,
+        altFormat: "j F Y", // Wyświetli np. "24 Marca 2026"
+        dateFormat: "Y-m-d", // Niewidoczny, surowy format do wysyłki dla formularza
+        disableMobile: "true" // Wymusza piękny design z Flatpickr także na telefonach zamiast brzydkiego natywnego
+    });
 }
 
 // AJAX FORM SUBMISSION & SUCCESS POPUP
