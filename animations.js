@@ -78,8 +78,9 @@ if(dateInput) {
     flatpickr(dateInput, {
         minDate: "today",
         maxDate: maxDate,
+        locale: "pl",
         altInput: true,
-        altFormat: "F j, Y",
+        altFormat: "j F Y",
         dateFormat: "Y-m-d",
         disableMobile: "true"
     });
@@ -93,7 +94,7 @@ if(form) {
     form.addEventListener("submit", function(e) {
         e.preventDefault();
         const originalText = submitBtn.innerText;
-        submitBtn.innerText = "SENDING...";
+        submitBtn.innerText = "WYSYŁANIE...";
         submitBtn.style.pointerEvents = "none";
         
         const formData = new FormData(form);
@@ -101,11 +102,19 @@ if(form) {
             method: "POST",
             body: formData,
             headers: { 'Accept': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            submitBtn.innerText = originalText;
+            submitBtn.style.pointerEvents = "auto";
+            form.reset();
+            popup.classList.add("show");
+            setTimeout(() => { popup.classList.remove("show"); }, 6000);
+        })
+        .catch(error => {
+            submitBtn.innerText = "BŁĄD WYSYŁANIA.";
+            submitBtn.style.pointerEvents = "auto";
+            setTimeout(() => submitBtn.innerText = originalText, 4000);
         });
-        submitBtn.innerText = originalText;
-        submitBtn.style.pointerEvents = "auto";
-        form.reset();
-        popup.classList.add("show");
-        setTimeout(() => { popup.classList.remove("show"); }, 6000);
     });
 }
