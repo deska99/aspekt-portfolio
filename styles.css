@@ -115,6 +115,17 @@ body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; back
 .insta-post { display: block; width: 100%; aspect-ratio: 1 / 1; background-size: cover; background-position: center; filter: grayscale(100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s; }
 .insta-post:hover { transform: scale(0.96); filter: grayscale(0%); }
 
+/* SUCCESS POPUP */
+.success-popup {
+    position: fixed; top: -150px; left: 50%; transform: translateX(-50%);
+    background: var(--text); color: var(--bg); font-family: var(--f-sans); font-size: 1.2rem;
+    padding: 1.5rem 3rem; text-transform: uppercase; letter-spacing: 2px;
+    z-index: 10000; transition: top 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); pointer-events: none;
+    text-align: center;
+}
+.success-popup.show { top: 40px; }
+
 /* MOBILE OVERRIDES */
 @media (max-width: 900px) {
     .huge-title { font-size: 25vw; justify-content: center; }

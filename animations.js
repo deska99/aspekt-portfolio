@@ -109,3 +109,47 @@ if(dateInput) {
     dateInput.min = formatDate(today);
     dateInput.max = formatDate(maxDate);
 }
+
+// AJAX FORM SUBMISSION & SUCCESS POPUP
+const form = document.getElementById("ajaxContactForm");
+const popup = document.getElementById("successPopup");
+const submitBtn = form ? form.querySelector(".submit-btn") : null;
+
+if(form) {
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); // Stop redirection
+        
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = "WYSYŁANIE...";
+        submitBtn.style.pointerEvents = "none";
+        
+        const formData = new FormData(form);
+        
+        fetch("https://formsubmit.co/ajax/krzysiek.ilendo@gmail.com", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Reset and restore
+            submitBtn.innerText = originalText;
+            submitBtn.style.pointerEvents = "auto";
+            form.reset();
+            
+            // Show stylish popup
+            popup.classList.add("show");
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 6000); // hide after 6 seconds
+        })
+        .catch(error => {
+            console.log(error);
+            submitBtn.innerText = "BŁĄD WYSYŁANIA.";
+            submitBtn.style.pointerEvents = "auto";
+            setTimeout(() => submitBtn.innerText = originalText, 4000);
+        });
+    });
+}
