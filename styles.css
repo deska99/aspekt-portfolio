@@ -198,6 +198,11 @@ body {
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.mobile-link:hover {
+    color: var(--accent);
 }
 
 /* DESKTOP UI */
