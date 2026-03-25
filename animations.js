@@ -112,17 +112,17 @@ if(document.querySelector(".insta-post")) {
 // NEW SUBPAGES ANIMATIONS - ABOUT & PORTFOLIO
 if(document.querySelector(".about-scatter-hero")) {
     gsap.utils.toArray(".scatter-img").forEach((item, i) => {
-        let speed = (i % 2 === 0) ? -150 : 150;
         gsap.fromTo(item, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1.8, ease: "power3.out", delay: i * 0.15 });
-        gsap.to(item, { y: speed, scrollTrigger: { trigger: ".about-scatter-hero", start: "top top", end: "bottom top", scrub: 1.2 } });
+        if(window.innerWidth > 900) {
+            let speed = (i % 2 === 0) ? -150 : 150;
+            gsap.to(item, { y: speed, scrollTrigger: { trigger: ".about-scatter-hero", start: "top top", end: "bottom top", scrub: 1.2 } });
+        }
     });
     gsap.utils.toArray(".scatter-word").forEach((word, i) => {
-        let speed = (i % 2 === 0) ? 200 : -200;
         gsap.fromTo(word, { opacity: 0 }, { opacity: 1, duration: 2, ease: "power3.out", delay: 0.5 + (i * 0.2) });
         if(window.innerWidth > 900) {
+            let speed = (i % 2 === 0) ? 200 : -200;
             gsap.to(word, { y: speed, letterSpacing: "3vw", scrollTrigger: { trigger: ".about-scatter-hero", start: "top top", end: "bottom top", scrub: 1.5 } });
-        } else {
-            gsap.to(word, { y: speed, scrollTrigger: { trigger: ".about-scatter-hero", start: "top top", end: "bottom top", scrub: 1.5 } });
         }
     });
 }

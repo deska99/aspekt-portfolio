@@ -887,13 +887,15 @@ body {
 
     .contact-story {
         font-size: 1.15rem !important;
-        min-width: 100% !important;
+        width: 100% !important;
+        min-width: 0 !important;
     }
 
     .contact-details {
         margin-top: 2rem !important;
         line-height: 2 !important;
         font-size: 0.85rem !important;
+        word-break: break-word;
     }
 }
 
