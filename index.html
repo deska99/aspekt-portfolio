@@ -138,8 +138,32 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section" style="min-height: 50vh; display:flex; align-items:center; justify-content:center;">
-        <a href="contact.html" class="creative-text" data-hover="text" style="color:var(--bg); mix-blend-mode:normal; text-decoration:none; text-align:center;">Porozmawiajmy.</a>
+    <section id="contact" class="contact-section">
+        <div class="contact-header">
+            <h2 class="creative-text" style="position:relative; top:0;">napisz<br><i>do mnie.</i></h2>
+        </div>
+        <div class="contact-form-container">
+            <form action="https://formsubmit.co/krzysiek.ilendo@gmail.com" method="POST" class="elegant-form" id="ajaxContactForm">
+                <input type="hidden" name="_subject" value="ASPEKT - Zapytanie ze strony głównej!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-row">
+                    <input type="text" name="imiona" placeholder="Wasze Imiona" required data-hover="text">
+                    <input type="text" name="data" class="date-input" placeholder="Data Ślubu" required data-hover="text">
+                </div>
+                <input type="email" name="email" placeholder="Adres E-mail" required data-hover="text" style="width:100%; margin-bottom: 1rem;">
+                
+                <textarea name="wiadomosc" rows="3" placeholder="Słowo o Was / Miejsce wesela..." required data-hover="text"></textarea>
+                
+                <button type="submit" class="submit-btn" data-hover="text">WYŚLIJ</button>
+
+                <p class="legal-notice">
+                    Wysyłając wiadomość, wyrażasz zgodę na przetwarzanie danych zgodnie z <a href="#" data-hover="text">Polityką Prywatności</a>.<br>
+                    Strona chroniona przez Google reCAPTCHA. Zobacz <a href="https://policies.google.com/privacy" target="_blank" data-hover="text">Politykę Prywatności Google</a> i <a href="https://policies.google.com/terms" target="_blank" data-hover="text">Warunki usługi</a>.
+                </p>
+            </form>
+        </div>
     </section>
 
     <footer class="insta-footer">
