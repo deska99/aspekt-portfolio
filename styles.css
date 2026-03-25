@@ -82,14 +82,15 @@ body {
 
 /* NOWA CZERWIEŃ KURSORA */
 
-/* MOBILE MENU UI */
+/* GLOBAL MENU UI */
 .menu-btn {
-    display: none;
+    display: flex;
     position: fixed;
-    right: 20px;
-    top: 20px;
-    width: 45px;
-    height: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    width: 60px;
+    height: 50px;
     z-index: 100000;
     flex-direction: column;
     justify-content: center;
@@ -100,24 +101,30 @@ body {
 .menu-btn-burger,
 .menu-btn-burger::before,
 .menu-btn-burger::after {
-    width: 28px;
-    height: 2px;
+    width: 45px;
+    height: 1px;
     background: #fff;
-    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .menu-btn-burger::before,
 .menu-btn-burger::after {
     content: '';
     position: absolute;
+    left: 50%;
+    width: 45px;
+}
+
+.menu-btn-burger {
+    position: relative;
 }
 
 .menu-btn-burger::before {
-    transform: translateY(-8px);
+    transform: translate(-50%, -10px);
 }
 
 .menu-btn-burger::after {
-    transform: translateY(8px);
+    transform: translate(-50%, 10px);
 }
 
 .menu-btn.open .menu-btn-burger {
@@ -125,11 +132,11 @@ body {
 }
 
 .menu-btn.open .menu-btn-burger::before {
-    transform: rotate(45deg);
+    transform: translate(-50%, 0) rotate(45deg);
 }
 
 .menu-btn.open .menu-btn-burger::after {
-    transform: rotate(-45deg);
+    transform: translate(-50%, 0) rotate(-45deg);
 }
 
 .mobile-nav {
@@ -613,8 +620,14 @@ body {
         display: none !important;
     }
 
+    .top-left {
+        display: block !important;
+        top: 20px;
+        left: 20px;
+    }
+
     .menu-btn {
-        display: flex;
+        top: 10px;
     }
 
     /* HERO */
