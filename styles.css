@@ -257,7 +257,7 @@ body {
 }
 
 .about {
-    min-height: 150vh;
+    min-height: 170vh;
     position: relative;
     padding: 20vh 5vw;
 }
@@ -299,9 +299,9 @@ body {
     left: 35vw;
     width: 40vw;
     z-index: 3;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.6;
     color: var(--text);
 }
 
