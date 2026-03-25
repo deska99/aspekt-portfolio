@@ -35,6 +35,8 @@ body {
 .insta-post {
     object-fit: cover;
     object-position: center;
+    flex-shrink: 0;
+    display: block;
 }
 
 /* GLOBAL FOOTER */
