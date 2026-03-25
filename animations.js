@@ -79,12 +79,12 @@ const scrollContainer = document.querySelector(".portfolio-scroll-container");
 if(scrollContainer) {
     if(window.innerWidth > 900) {
         gsap.to(scrollContainer, {
-            x: () => -(scrollContainer.scrollWidth - window.innerWidth + (window.innerWidth * 0.2)), ease: "none",
-            scrollTrigger: { trigger: ".portfolio", pin: true, scrub: 1.2, end: () => "+=" + (scrollContainer.scrollWidth + window.innerWidth * 0.2) }
+            x: () => -(scrollContainer.scrollWidth - window.innerWidth), ease: "none",
+            scrollTrigger: { trigger: ".portfolio", pin: true, scrub: 1.2, end: () => "+=" + scrollContainer.scrollWidth }
         });
         gsap.utils.toArray(".port-item").forEach((item, i) => {
             let speed = (i % 2 === 0) ? -60 : 60; 
-            gsap.to(item, { x: speed, ease: "none", scrollTrigger: { trigger: ".portfolio", start: "top top", end: () => "+=" + (scrollContainer.scrollWidth + window.innerWidth * 0.2), scrub: 1 } });
+            gsap.to(item, { x: speed, ease: "none", scrollTrigger: { trigger: ".portfolio", start: "top top", end: () => "+=" + scrollContainer.scrollWidth, scrub: 1 } });
         });
     } else {
         gsap.utils.toArray(".port-item").forEach((item) => {
