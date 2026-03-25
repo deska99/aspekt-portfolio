@@ -1122,33 +1122,101 @@ body {
 }
 
 @media (max-width: 900px) {
-    /* Override desktop absolute positions for About scatter hero */
-    .w1, .w2, .w3, .s1, .s2, .s3, .s4, .s5 {
+    /* Custom Editorial Collage Layout for Mobile About Hero */
+    .about-scatter-hero {
+        height: 180vh !important;
+        display: block !important;
+        padding: 0 !important;
         position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
     }
+
     .scatter-word {
-        position: relative !important;
+        position: absolute !important;
+        margin: 0 !important;
+        z-index: 10 !important;
         display: block !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
         bottom: auto !important;
-        margin: 2vh 0 !important;
-        text-align: center !important;
+        line-height: 1 !important;
     }
+
     .scatter-img {
-        position: relative !important;
-        display: block !important;
-        width: 95vw !important;
-        height: 55vh !important;
+        position: absolute !important;
+        margin: 0 !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
         bottom: auto !important;
-        margin: 0 auto 3vh auto !important;
+    }
+
+    /* "mąż" and IMG 1 */
+    .w1 {
+        top: 15vh !important;
+        left: -2vw !important;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 18vw !important;
+        mix-blend-mode: exclusion !important;
+        color: white !important;
+    }
+    .s1 {
+        top: 10vh !important;
+        right: 5vw !important;
+        width: 75vw !important;
+        height: 40vh !important;
+        z-index: 1 !important;
+    }
+
+    /* "tata" and IMG 2 */
+    .w2 {
+        top: 65vh !important;
+        right: 0 !important;
+        font-size: 20vw !important;
+        mix-blend-mode: exclusion !important;
+        color: white !important;
+        text-align: right !important;
+    }
+    .s2 {
+        top: 60vh !important;
+        left: 5vw !important;
+        width: 70vw !important;
+        height: 35vh !important;
+        z-index: 2 !important;
+    }
+
+    /* "fotograf" and IMG 3,4,5 */
+    .w3 {
+        top: 110vh !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        font-size: 11vw !important;
+        letter-spacing: 0.8vw !important;
+        width: 100vw !important;
+        text-align: center !important;
+        mix-blend-mode: difference !important;
+        color: white !important;
+    }
+    .s3 {
+        top: 120vh !important;
+        left: 5vw !important;
+        width: 45vw !important;
+        height: 25vh !important;
+        z-index: 3 !important;
+    }
+    .s4 {
+        top: 125vh !important;
+        right: 5vw !important;
+        width: 40vw !important;
+        height: 30vh !important;
+        z-index: 4 !important;
+    }
+    .s5 {
+        top: 150vh !important;
+        left: 15vw !important;
+        width: 70vw !important;
+        height: 20vh !important;
+        z-index: 2 !important;
     }
 }
