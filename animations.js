@@ -38,11 +38,43 @@ if(window.matchMedia("(pointer: fine)").matches) {
     document.body.style.cursor = 'auto';
 }
 
+// HAMBURGER MENU LOGIC
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNav = document.querySelector('.mobile-nav');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+if(menuBtn) {
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('open');
+        mobileNav.classList.toggle('open');
+        if(mobileNav.classList.contains('open')) {
+            lenis.stop(); // blokada scrollowania pod panelem menu
+        } else {
+            lenis.start();
+        }
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuBtn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            lenis.start();
+        });
+    });
+}
+
 gsap.fromTo(".hero-image", { scale: 1.5, filter: "blur(15px)" }, { scale: 1, filter: "blur(0px)", duration: 2.2, ease: "power3.out" });
 gsap.to(".hero-image-wrapper", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.8 });
-gsap.to(".huge-title", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: -100, letterSpacing: "8vw" });
 
-gsap.to(".about-image-overlap", { scrollTrigger: { trigger: ".about", start: "top bottom", end: "bottom top", scrub: 1.5 }, y: -250 });
+// FIX HERO TEXT MOBILE OVERFLOW
+if (window.innerWidth > 900) {
+    gsap.to(".huge-title", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: -100, letterSpacing: "8vw" });
+    gsap.to(".about-image-overlap", { scrollTrigger: { trigger: ".about", start: "top bottom", end: "bottom top", scrub: 1.5 }, y: -250 });
+} else {
+    // Delikatne zanikanie zamiast rozjeżdżania wyrazów w telefonie
+    gsap.to(".huge-title", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: -50, opacity: 0 });
+    gsap.from(".about-image-overlap", { scrollTrigger: { trigger: ".about", start: "top 85%" }, y: 50, duration: 1.2, opacity: 0 });
+}
 
 const scrollContainer = document.querySelector(".portfolio-scroll-container");
 if(scrollContainer) {
