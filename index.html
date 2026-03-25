@@ -38,7 +38,7 @@
         <a href="about.html" class="mobile-link">O MNIE</a>
         <a href="portfolio.html" class="mobile-link">PORTFOLIO</a>
         <a href="index.html#portfolio" class="mobile-link">OFERTA</a>
-        <a href="#contact" class="mobile-link">KONTAKT</a>
+        <a href="contact.html" class="mobile-link">KONTAKT</a>
     </div>
 
     <!-- CORNER ELEMENTS -->
@@ -138,27 +138,8 @@
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="contact-header">
-            <h2 class="creative-text" style="position:relative; top:0;">napisz<br><i>do mnie.</i></h2>
-        </div>
-        <div class="contact-form-container">
-            <form id="ajaxContactForm" class="elegant-form" action="https://formsubmit.co/krzysiek.ilendo@gmail.com"
-                method="POST">
-                <input type="hidden" name="_subject" value="ASPEKT - Nowe zapytanie przez stronę!">
-                <input type="hidden" name="_captcha" value="false">
-                <div class="form-row">
-                    <input type="text" name="Names" placeholder="Wasze imiona" required>
-                    <input type="date" name="Wedding_Date" placeholder="Data ślubu" class="date-input">
-                </div>
-                <div class="form-row">
-                    <input type="text" name="Location" placeholder="Lokalizacja (Sala / Miasto)">
-                    <input type="email" name="Client_Email" placeholder="Adres e-mail" required>
-                </div>
-                <textarea name="Message" rows="3" placeholder="Opowiedzcie mi trochę o swoim dniu..."></textarea>
-                <button type="submit" class="submit-btn" data-hover="text">Wyślij wiadomość</button>
-            </form>
-        </div>
+    <section id="contact" class="contact-section" style="min-height: 50vh; display:flex; align-items:center; justify-content:center;">
+        <a href="contact.html" class="creative-text" data-hover="text" style="color:var(--bg); mix-blend-mode:normal; text-decoration:none; text-align:center;">Porozmawiajmy.</a>
     </section>
 
     <footer class="insta-footer">

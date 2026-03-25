@@ -98,9 +98,12 @@ if(document.querySelector(".review-block")) {
         gsap.from(block, { scrollTrigger: { trigger: block, start: "top 85%" }, duration: 1.5, y: 80, opacity: 0, ease: "power3.out" });
     });
 }
-if(document.querySelector(".contact-header")) {
-    gsap.from(".contact-header .creative-text", { scrollTrigger: { trigger: ".contact-section", start: "top 80%" }, duration: 1.2, y: 50, opacity: 0, ease: "power3.out" });
-    gsap.from(".elegant-form input, .elegant-form textarea, .submit-btn", { scrollTrigger: { trigger: ".elegant-form", start: "top 85%" }, duration: 1.2, y: 30, opacity: 0, stagger: 0.15, ease: "power3.out" });
+if(document.querySelector(".contact-section")) {
+    gsap.from(".contact-section .creative-text", { scrollTrigger: { trigger: ".contact-section", start: "top 80%" }, duration: 1.2, y: 50, opacity: 0, ease: "power3.out" });
+}
+if(document.querySelector(".contact-page-wrapper")) {
+    gsap.from(".contact-info-side > *", { y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out" });
+    gsap.from(".elegant-form input, .elegant-form textarea, .submit-btn", { y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.5 });
 }
 if(document.querySelector(".insta-post")) {
     gsap.from(".insta-post", { scrollTrigger: { trigger: ".insta-grid", start: "top 95%" }, duration: 1.2, y: 40, opacity: 0, stagger: 0.1, ease: "power3.out" });

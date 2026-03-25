@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPEKT | Kontakt</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/pl.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="animations.js"></script>
+</head>
+<body style="background:var(--text); color:var(--bg);">
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- GLOBAL HAMBURGER MENU -->
+    <div class="menu-btn" data-hover="text" style="mix-blend-mode:normal;">
+        <div class="menu-btn-burger"></div>
+    </div>
+    <div class="mobile-nav">
+        <a href="about.html" class="mobile-link">O MNIE</a>
+        <a href="portfolio.html" class="mobile-link">PORTFOLIO</a>
+        <a href="index.html#portfolio" class="mobile-link">OFERTA</a>
+        <a href="contact.html" class="mobile-link">KONTAKT</a>
+    </div>
+
+    <!-- CORNER ELEMENTS -->
+    <a href="index.html" class="corner-link top-left logo" data-hover="text" style="color:#fff; mix-blend-mode:normal;">ASPEKT</a>
+    <div class="corner-link top-right" style="color:#fff; mix-blend-mode:normal;">KRZYSZTOF</div>
+    <div class="corner-link bottom-left" style="color:#fff; mix-blend-mode:normal;">IŁENDO</div>
+    <div class="corner-link bottom-right" style="color:#fff; mix-blend-mode:normal;">FOTOGRAFIA</div>
+
+    <section class="contact-page-wrapper">
+        <div class="contact-info-side">
+            <div class="contact-headline">
+                <p>Mieszkam w Białymstoku, ale dla dobrych ludzi jestem w stanie dojechać (lub dolecieć) gdzie trzeba.</p>
+                <br>
+                <p>Macie termin i chcecie sprawdzić dostępność?<br>
+                Wypełnijcie formularz i napiszcie kilka słów o sobie i Waszym ślubie. Gdzie, kiedy i jaki klimat planujecie. Nie musi być długo ani oficjalnie, ważne żeby było po Waszemu.</p>
+                <br>
+                <p>Odezwę się jak najszybciej z informacją, czy mam jeszcze wolny termin i co możemy razem stworzyć.</p>
+                <br>
+                <p>Jeśli wolicie, możecie też napisać bezpośrednio albo odezwać się na socialach.</p>
+            </div>
+            
+            <div class="contact-details">
+                TELEFON : <a href="tel:+48668566898" data-hover="text">668 566 898</a><br>
+                MAIL : <a href="mailto:krzysiek.ilendo@gmail.com" data-hover="text">krzysiek.ilendo@gmail.com</a><br>
+                IG : <a href="https://instagram.com/aspektfotografia" target="_blank" data-hover="text">Instagram.com/aspektfotografia</a><br>
+                FB : <a href="https://facebook.com/aspektfotografia" target="_blank" data-hover="text">facebook.com/aspektfotografia</a>
+            </div>
+        </div>
+
+        <div class="contact-form-side">
+            <form action="https://formsubmit.co/krzysiek.ilendo@gmail.com" method="POST" class="elegant-form" id="ajaxContactForm">
+                <input type="hidden" name="_subject" value="Nowe zapytanie z portfolio ASPEKT!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-row">
+                    <input type="text" name="imiona" placeholder="Wasze Imiona" required data-hover="text">
+                    <input type="text" name="data" class="date-input" placeholder="Data Ślubu" required data-hover="text">
+                </div>
+                <input type="email" name="email" placeholder="Adres E-mail" required data-hover="text" style="width:100%; margin-bottom: 2rem;">
+                <textarea name="wiadomosc" rows="3" placeholder="Słowo o Was / Miejsce wesela" required data-hover="text"></textarea>
+                <button type="submit" class="submit-btn" data-hover="text">WYŚLIJ</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SUCCESS POPUP -->
+    <div class="success-popup" id="successPopup">BAJKA, ZGŁOSZENIE WYSŁANE.</div>
+    
+</body>
+</html>
