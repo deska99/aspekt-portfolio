@@ -28,18 +28,20 @@ body {
 
 /* GLOBAL FOOTER */
 .site-footer {
-    width: 100vw;
-    background: var(--bg);
-    color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    background: transparent;
+    color: var(--accent);
     text-align: center;
     padding: 5vh 0;
     font-family: var(--f-sans);
     font-size: 0.65rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.8;
     position: relative;
     z-index: 10;
+    clear: both;
 }
 
 ::selection {
@@ -466,6 +468,17 @@ body {
     font-weight: 700;
     letter-spacing: 2px;
     color: var(--accent);
+}
+
+.contact-s.review-card {
+    min-width: 60vw;
+    font-family: var(--f-serif);
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contact-section {
