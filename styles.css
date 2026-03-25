@@ -8,7 +8,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
-html { background-color: var(--bg); scroll-behavior: smooth; }
+html { background-color: var(--bg); }
 body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; background: var(--bg); }
 ::selection { background: var(--accent); color: #fff; }
 
