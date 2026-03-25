@@ -454,7 +454,7 @@ body {
 }
 
 .review-block .quote {
-    font-size: clamp(1.2rem, 2vw, 2.2rem);
+    font-size: clamp(0.7rem, 2vw, 1.7rem);
     font-style: italic;
     font-weight: 300;
     line-height: 1.4;
@@ -805,26 +805,29 @@ body {
 
     .about-scatter-hero {
         height: auto;
-        min-height: 200vh;
+        padding: 5vh 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3vh;
     }
 
     .scatter-word {
-        font-size: 25vw;
+        font-size: 20vw;
         position: relative;
         display: block;
         top: auto !important;
         left: auto !important;
         right: auto !important;
         bottom: auto !important;
-        margin: 10vh 0;
+        margin: 2vh 0;
         text-align: center;
     }
 
     .scatter-img {
         position: relative;
         display: block;
-        width: 90vw !important;
-        height: 60vh !important;
+        width: 95vw !important;
+        height: 55vh !important;
         top: auto !important;
         left: auto !important;
         right: auto !important;
@@ -846,20 +849,25 @@ body {
 
     .masonry-item {
         width: 100vw !important;
-        height: 60vh !important;
-        margin-left: -5vw;
+        height: 55vh !important;
+        margin-left: -5vw !important;
         margin-top: 0 !important;
-        margin-bottom: 5vh !important;
+        margin-bottom: 2vh !important;
         border-radius: 0;
     }
 
     .portfolio-grid-hero {
-        height: 50vh;
+        height: 40vh;
+    }
+
+    .portfolio-grid-hero .huge-title {
+        font-size: 13vw !important;
     }
 
     .portfolio-masonry {
         flex-direction: column;
         padding: 0 5vw;
+        gap: 0;
     }
 
     .vertical-more {
@@ -871,16 +879,21 @@ body {
         display: block;
     }
 
-    .contact-page-wrapper {
-        flex-direction: column;
-        padding: 15vh 5vw;
-        gap: 5vh;
+    .contact-layout-split {
+        flex-direction: column !important;
+        gap: 8vh !important;
+        margin-top: 5vh !important;
     }
 
-    .contact-info-side,
-    .contact-form-side {
-        flex: auto;
-        width: 100%;
+    .contact-story {
+        font-size: 1.15rem !important;
+        min-width: 100% !important;
+    }
+
+    .contact-details {
+        margin-top: 2rem !important;
+        line-height: 2 !important;
+        font-size: 0.85rem !important;
     }
 }
 
