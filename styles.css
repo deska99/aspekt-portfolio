@@ -26,6 +26,22 @@ body {
     background: var(--bg);
 }
 
+/* GLOBAL FOOTER */
+.site-footer {
+    width: 100vw;
+    background: var(--bg);
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    padding: 5vh 0;
+    font-family: var(--f-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    position: relative;
+    z-index: 10;
+}
+
 ::selection {
     background: var(--accent);
     color: #fff;
@@ -302,7 +318,7 @@ body {
 
 .about-description {
     position: absolute;
-    top: 110vh;
+    bottom: 15vh;
     left: 35vw;
     width: 40vw;
     z-index: 3;
@@ -694,6 +710,7 @@ body {
     .about-description {
         position: relative;
         top: 0;
+        bottom: auto;
         left: 0;
         width: 100%;
         margin-top: 0;
