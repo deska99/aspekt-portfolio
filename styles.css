@@ -1,7 +1,8 @@
 :root {
     --bg: #ececeb;
     --text: #0d0d0d;
-    --accent: #294a1d; 
+    /* --accent: #294a1d; /* STARY KOLOR ZIELONY */
+    --accent: #7a1515; /* NOWY KOLOR GŁĘBOKA CZERWIEŃ */
     --f-serif: 'Cormorant Garamond', serif;
     --f-sans: 'Syncopate', sans-serif;
 }
@@ -30,7 +31,8 @@ body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; back
     transition: 0.15s ease-out;
 }
 .cursor.hover-text { width: 60px; height: 60px; mix-blend-mode: difference; background: white; }
-.cursor.hover-image { width: 90px; height: 90px; mix-blend-mode: normal; background: rgba(41,74,29, 0.85); }
+/* .cursor.hover-image { width: 90px; height: 90px; mix-blend-mode: normal; background: rgba(41,74,29, 0.85); } STARA ZIELEŃ KURSORA */
+.cursor.hover-image { width: 90px; height: 90px; mix-blend-mode: normal; background: rgba(122,21,21, 0.85); } /* NOWA CZERWIEŃ KURSORA */
 .cursor.hover-image::after { content: 'VIEW'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: var(--f-sans); font-size: 11px; letter-spacing: 2px;}
 
 /* MOBILE MENU UI */
