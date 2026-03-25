@@ -26,6 +26,17 @@ body {
     background: var(--bg);
 }
 
+/* IMAGE SEO AND WEBP PROPERTIES */
+.hero-image,
+.about-image-overlap,
+.port-item,
+.scatter-img,
+.masonry-item,
+.insta-post {
+    object-fit: cover;
+    object-position: center;
+}
+
 /* GLOBAL FOOTER */
 .site-footer {
     width: 100%;
