@@ -535,6 +535,27 @@ body {
     color: var(--accent);
 }
 
+.legal-notice {
+    margin-top: 2rem;
+    font-family: var(--f-sans);
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.legal-notice a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.legal-notice a:hover {
+    color: var(--bg);
+}
+
 .insta-footer {
     background: var(--bg);
     padding: 10vh 5vw 5vh 5vw;
