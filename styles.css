@@ -33,7 +33,6 @@ body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; back
 .cursor.hover-text { width: 60px; height: 60px; mix-blend-mode: difference; background: white; }
 /* .cursor.hover-image { width: 90px; height: 90px; mix-blend-mode: normal; background: rgba(41,74,29, 0.85); } STARA ZIELEŃ KURSORA */
 .cursor.hover-image { width: 90px; height: 90px; mix-blend-mode: normal; background: rgba(122,21,21, 0.85); } /* NOWA CZERWIEŃ KURSORA */
-.cursor.hover-image::after { content: 'VIEW'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: var(--f-sans); font-size: 11px; letter-spacing: 2px;}
 
 /* MOBILE MENU UI */
 .menu-btn { display: none; position: fixed; right: 20px; top: 20px; width: 45px; height: 45px; z-index: 100000; flex-direction: column; justify-content: center; align-items: center; mix-blend-mode: difference; }
@@ -198,7 +197,7 @@ body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; back
 .portfolio-grid-hero { height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0f1210;}
 .portfolio-masonry { width: 100vw; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 5vw; padding: 5vh 5vw 20vh 5vw; background: #0f1210; }
 .masonry-item { background-size: cover; background-position: center; width: 30vw; height: 50vh; margin-bottom: 10vh; transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-.masonry-item:hover { transform: scale(0.96); filter: grayscale(100%); }
+.masonry-item:hover { transform: scale(0.96); }
 
 .p1, .p4, .p7, .p15, .p18 { width: 45vw; height: 60vh; margin-top: -10vh; }
 .p2, .p11, .p16 { width: 25vw; height: 40vh; margin-top: 15vh; }
