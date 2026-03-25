@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPEKT | Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="animations.js"></script>
+</head>
+<body class="dark-page">
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- MOBILE HAMBURGER MENU -->
+    <div class="menu-btn" data-hover="text">
+        <div class="menu-btn-burger"></div>
+    </div>
+    <div class="mobile-nav">
+        <a href="index.html" class="mobile-link">STRONA GŁÓWNA</a>
+        <a href="about.html" class="mobile-link">O MNIE</a>
+        <a href="portfolio.html" class="mobile-link">PORTFOLIO</a>
+        <a href="index.html#contact" class="mobile-link">KONTAKT</a>
+    </div>
+
+    <!-- DESKTOP CORNER LINKS -->
+    <a href="index.html" class="corner-link top-left logo" data-hover="text" style="color:#fff;">ASPEKT</a>
+    <a href="index.html#contact" class="corner-link top-right" data-hover="text" style="color:#fff;">Kontakt</a>
+    <a href="about.html" class="corner-link bottom-left" data-hover="text" style="color:#fff;">O mnie</a>
+    <a href="portfolio.html" class="corner-link bottom-right" data-hover="text" style="color:#fff;">Portfolio</a>
+
+    <section class="portfolio-grid-hero">
+        <h1 class="huge-title" style="color:var(--bg); mix-blend-mode:normal; z-index:10; width:100vw; justify-content:center;" data-hover="text">
+            <span>S</span><span>E</span><span>L</span><span>E</span><span>C</span><span>T</span><span>E</span><span>D</span>
+        </h1>
+    </section>
+
+    <section class="portfolio-masonry">
+        <div class="masonry-item p1" style="background-image:url('images/ASPEKT-pEK-17.jpg');" data-hover="image"></div>
+        <div class="masonry-item p2" style="background-image:url('images/ASPEKT-pEK-179.jpg');" data-hover="image"></div>
+        <div class="masonry-item p3" style="background-image:url('images/ASPEKT-pEK-189.jpg');" data-hover="image"></div>
+        <div class="masonry-item p4" style="background-image:url('images/ASPEKT-pEK-210.jpg');" data-hover="image"></div>
+        <div class="masonry-item p5" style="background-image:url('images/ASPEKT-pEK-214.jpg');" data-hover="image"></div>
+        <div class="masonry-item p6" style="background-image:url('images/ASPEKT-pEK-216.jpg');" data-hover="image"></div>
+        <div class="masonry-item p7" style="background-image:url('images/ASPEKT-pEK-225.jpg');" data-hover="image"></div>
+        <div class="masonry-item p8" style="background-image:url('images/ASPEKT-pEK-231.jpg');" data-hover="image"></div>
+        <div class="masonry-item p9" style="background-image:url('images/ASPEKT-pEK-236.jpg');" data-hover="image"></div>
+        <div class="masonry-item p10" style="background-image:url('images/ASPEKT-pEK-241.jpg');" data-hover="image"></div>
+        <div class="masonry-item p11" style="background-image:url('images/ASPEKT-pEK-247.jpg');" data-hover="image"></div>
+        <div class="masonry-item p12" style="background-image:url('images/ASPEKT-pEK-254.jpg');" data-hover="image"></div>
+        <div class="masonry-item p13" style="background-image:url('images/ASPEKT-pEK-262.jpg');" data-hover="image"></div>
+        <div class="masonry-item p14" style="background-image:url('images/ASPEKT-pEK-264.jpg');" data-hover="image"></div>
+        <div class="masonry-item p15" style="background-image:url('images/ASPEKT-pEK-265.jpg');" data-hover="image"></div>
+        <div class="masonry-item p16" style="background-image:url('images/ASPEKT-pEK-41.jpg');" data-hover="image"></div>
+        <div class="masonry-item p17" style="background-image:url('images/ASPEKT-pEK-138.jpg');" data-hover="image"></div>
+        <div class="masonry-item p18" style="background-image:url('images/ASPEKT-pEK-227.jpg');" data-hover="image"></div>
+        <div class="masonry-item p19" style="background-image:url('images/ASPEKT-pEK-184.jpg');" data-hover="image"></div>
+        <div class="masonry-item p20" style="background-image:url('images/ASPEKT-pEK-215.jpg');" data-hover="image"></div>
+    </section>
+
+</body>
+</html>

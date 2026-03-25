@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPEKT | O mnie</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="animations.js"></script>
+</head>
+<body>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- MOBILE HAMBURGER MENU -->
+    <div class="menu-btn" data-hover="text">
+        <div class="menu-btn-burger"></div>
+    </div>
+    <div class="mobile-nav">
+        <a href="index.html" class="mobile-link">STRONA GŁÓWNA</a>
+        <a href="about.html" class="mobile-link">O MNIE</a>
+        <a href="portfolio.html" class="mobile-link">PORTFOLIO</a>
+        <a href="index.html#contact" class="mobile-link">KONTAKT</a>
+    </div>
+
+    <!-- DESKTOP CORNER LINKS -->
+    <a href="index.html" class="corner-link top-left logo" data-hover="text">ASPEKT</a>
+    <a href="index.html#contact" class="corner-link top-right" data-hover="text">Kontakt</a>
+    <a href="about.html" class="corner-link bottom-left" data-hover="text">O mnie</a>
+    <a href="portfolio.html" class="corner-link bottom-right" data-hover="text">Portfolio</a>
+
+    <section class="about-scatter-hero">
+        <h1 class="scatter-word w1" data-hover="text">mąż</h1>
+        <div class="scatter-img s1" style="background-image:url('images/ASPEKT-pEK-138.jpg');" data-hover="image"></div>
+        
+        <h1 class="scatter-word w2" data-hover="text">tata</h1>
+        <div class="scatter-img s2" style="background-image:url('images/ASPEKT-pEK-184.jpg');" data-hover="image"></div>
+        
+        <h1 class="scatter-word w3" data-hover="text">fotograf</h1>
+        <div class="scatter-img s3" style="background-image:url('images/ASPEKT-pEK-215.jpg');" data-hover="image"></div>
+        <div class="scatter-img s4" style="background-image:url('images/ASPEKT-pEK-218.jpg');" data-hover="image"></div>
+        <div class="scatter-img s5" style="background-image:url('images/ASPEKT-pEK-227.jpg');" data-hover="image"></div>
+    </section>
+
+    <section class="about-story">
+        <div class="story-content">
+            <h2 class="creative-text" style="position:relative; top:0;">Moja<br><i>Historia.</i></h2>
+            <div class="story-text">
+                <p>Nazywam się Krzysztof. Fotografia to dla mnie o wiele więcej niż tylko naciśnięcie spustu migawki. To narzędzie do opowiadania absolutnie nieszablonowych historii, pełnych prawdziwego kina ukrytego w naszych codziennych emocjach.</p>
+                <br>
+                <p>W moich kadrach znajdziesz bardzo dużo nieoczekiwanego światła i nieostrych poruszeń, bo to one najczęściej stanowią najczystszą pamiątkę ulotności dnia ślubu. Posiadam dwójkę cudownych dzieci i żonę – wiem, jak bezcenna staje się z wiekiem prawdziwa, niczym nieskrępowana rodzinna pamiątka.</p>
+                <br>
+                <p>Zapraszam Cię do obejrzenia szerszego spektrum moich prac w dedykowanej sekcji portfolio. Skupiam się na klatkach bez reżyserowania.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="insta-footer">
+        <div class="insta-header">
+            <h3>ASPEKT NA INSTAGRAMIE</h3>
+            <a href="https://instagram.com/aspektfotografia" target="_blank" data-hover="text" class="insta-link">@aspektfotografia</a>
+        </div>
+    </footer>
+</body>
+</html>

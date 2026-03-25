@@ -167,3 +167,57 @@ body { font-family: var(--f-serif); color: var(--text); overflow-x: hidden; back
     .insta-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 4vw; }
 }
+
+/* NEW LINKS AND PAGES UI */
+.more-link { display: inline-block; font-family: var(--f-sans); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 2px; transition: transform 0.3s; margin-top: 1rem;}
+.more-link:hover { transform: scale(1.05); }
+
+.vertical-more { font-family: var(--f-sans); font-size: clamp(3rem, 7vw, 10rem); font-weight: 700; color: var(--accent); text-decoration: none; writing-mode: vertical-rl; transform: rotate(180deg); margin-left: 5vw; transition: opacity 0.3s; line-height: 0.9;}
+.vertical-more:hover { opacity: 0.7; }
+
+/* ABOUT SUBPAGE SCATTER HERO */
+.about-scatter-hero { position: relative; width: 100vw; height: 180vh; overflow: hidden; background: var(--bg); display: flex; align-items: center; justify-content: center; }
+.scatter-word { position: absolute; font-family: var(--f-sans); font-size: clamp(5rem, 12vw, 18rem); color: var(--text); mix-blend-mode: overlay; z-index: 5; pointer-events: none; }
+.w1 { top: 15%; left: 10%; }
+.w2 { top: 40%; right: 10%; }
+.w3 { bottom: 20%; left: 15%; }
+
+.scatter-img { position: absolute; background-size: cover; background-position: center; border-radius: 2px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+.s1 { width: 35vw; height: 50vh; top: 10%; right: 15%; z-index: 1;}
+.s2 { width: 40vw; height: 60vh; top: 35%; left: 10%; z-index: 2;}
+.s3 { width: 30vw; height: 45vh; bottom: 25%; right: 20%; z-index: 3;}
+.s4 { width: 25vw; height: 35vh; bottom: 5%; left: 5%; z-index: 1;}
+.s5 { width: 35vw; height: 55vh; top: 75%; left: 50%; z-index: 4;}
+
+.about-story { padding: 10vh 15vw; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.story-content { display: flex; flex-direction: column; gap: 5rem; }
+.story-text { font-size: 1.8rem; line-height: 1.6; font-weight: 300; }
+
+/* PORTFOLIO SUBPAGE MASONRY */
+.dark-page { background: #0f1210; color: #fff; }
+.portfolio-grid-hero { height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0f1210;}
+.portfolio-masonry { width: 100vw; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 5vw; padding: 5vh 5vw 20vh 5vw; background: #0f1210; }
+.masonry-item { background-size: cover; background-position: center; width: 30vw; height: 50vh; margin-bottom: 10vh; transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.masonry-item:hover { transform: scale(0.96); filter: grayscale(100%); }
+
+.p1, .p4, .p7, .p15, .p18 { width: 45vw; height: 60vh; margin-top: -10vh; }
+.p2, .p11, .p16 { width: 25vw; height: 40vh; margin-top: 15vh; }
+.p3, .p8, .p12, .p19 { width: 35vw; height: 55vh; }
+.p5, .p9, .p13, .p20 { width: 60vw; height: 75vh; margin-top: 5vh; }
+.p6, .p10, .p14, .p17 { width: 40vw; height: 65vh; margin-top: -5vh; }
+
+@media (max-width: 900px) {
+    .about-scatter-hero { height: auto; min-height: 200vh; }
+    .scatter-word { font-size: 25vw; position: relative; display: block; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; margin: 10vh 0; text-align: center; }
+    .scatter-img { position: relative; display: block; width: 90vw !important; height: 60vh !important; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; margin: 0 auto; }
+    
+    .story-content { gap: 2rem; }
+    .story-text { font-size: 1.4rem; }
+    .about-story { padding: 15vh 5vw; }
+    
+    .masonry-item { width: 100vw !important; height: 60vh !important; margin-left: -5vw; margin-top: 0 !important; margin-bottom: 5vh !important; border-radius: 0; }
+    .portfolio-grid-hero { height: 50vh; }
+    .portfolio-masonry { flex-direction: column; padding: 0 5vw; }
+    
+    .vertical-more { writing-mode: horizontal-tb; transform: none; margin-left: 0; margin-top: 5vh; text-align: center; display: block; }
+}

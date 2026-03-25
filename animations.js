@@ -33,12 +33,11 @@ if(window.matchMedia("(pointer: fine)").matches) {
         el.addEventListener('mouseleave', () => { cursor.classList.remove('hover-image'); follower.style.display = 'block'; });
     });
 } else {
-    cursor.style.display = 'none'; 
-    follower.style.display = 'none'; 
+    if(cursor) cursor.style.display = 'none'; 
+    if(follower) follower.style.display = 'none'; 
     document.body.style.cursor = 'auto';
 }
 
-// HAMBURGER MENU LOGIC
 const menuBtn = document.querySelector('.menu-btn');
 const mobileNav = document.querySelector('.mobile-nav');
 const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -48,7 +47,7 @@ if(menuBtn) {
         menuBtn.classList.toggle('open');
         mobileNav.classList.toggle('open');
         if(mobileNav.classList.contains('open')) {
-            lenis.stop(); // blokada scrollowania pod panelem menu
+            lenis.stop();
         } else {
             lenis.start();
         }
@@ -63,17 +62,17 @@ if(menuBtn) {
     });
 }
 
-gsap.fromTo(".hero-image", { scale: 1.5, filter: "blur(15px)" }, { scale: 1, filter: "blur(0px)", duration: 2.2, ease: "power3.out" });
-gsap.to(".hero-image-wrapper", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.8 });
-
-// FIX HERO TEXT MOBILE OVERFLOW
-if (window.innerWidth > 900) {
-    gsap.to(".huge-title", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: -100, letterSpacing: "8vw" });
-    gsap.to(".about-image-overlap", { scrollTrigger: { trigger: ".about", start: "top bottom", end: "bottom top", scrub: 1.5 }, y: -250 });
-} else {
-    // Delikatne zanikanie zamiast rozjeżdżania wyrazów w telefonie
-    gsap.to(".huge-title", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: -50, opacity: 0 });
-    gsap.from(".about-image-overlap", { scrollTrigger: { trigger: ".about", start: "top 85%" }, y: 50, duration: 1.2, opacity: 0 });
+// INDEX.HTML ANIMATIONS
+if(document.querySelector(".hero-image")) {
+    gsap.fromTo(".hero-image", { scale: 1.5, filter: "blur(15px)" }, { scale: 1, filter: "blur(0px)", duration: 2.2, ease: "power3.out" });
+    gsap.to(".hero-image-wrapper", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.8 });
+    if (window.innerWidth > 900) {
+        gsap.to(".huge-title", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: -100, letterSpacing: "8vw" });
+        gsap.to(".about-image-overlap", { scrollTrigger: { trigger: ".about", start: "top bottom", end: "bottom top", scrub: 1.5 }, y: -250 });
+    } else {
+        gsap.to(".huge-title", { scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }, y: -50, opacity: 0 });
+        gsap.from(".about-image-overlap", { scrollTrigger: { trigger: ".about", start: "top 85%" }, y: 50, duration: 1.2, opacity: 0 });
+    }
 }
 
 const scrollContainer = document.querySelector(".portfolio-scroll-container");
@@ -94,15 +93,51 @@ if(scrollContainer) {
     }
 }
 
-gsap.utils.toArray(".review-block").forEach((block) => {
-    gsap.from(block, { scrollTrigger: { trigger: block, start: "top 85%" }, duration: 1.5, y: 80, opacity: 0, ease: "power3.out" });
-});
+if(document.querySelector(".review-block")) {
+    gsap.utils.toArray(".review-block").forEach((block) => {
+        gsap.from(block, { scrollTrigger: { trigger: block, start: "top 85%" }, duration: 1.5, y: 80, opacity: 0, ease: "power3.out" });
+    });
+}
+if(document.querySelector(".contact-header")) {
+    gsap.from(".contact-header .creative-text", { scrollTrigger: { trigger: ".contact-section", start: "top 80%" }, duration: 1.2, y: 50, opacity: 0, ease: "power3.out" });
+    gsap.from(".elegant-form input, .elegant-form textarea, .submit-btn", { scrollTrigger: { trigger: ".elegant-form", start: "top 85%" }, duration: 1.2, y: 30, opacity: 0, stagger: 0.15, ease: "power3.out" });
+}
+if(document.querySelector(".insta-post")) {
+    gsap.from(".insta-post", { scrollTrigger: { trigger: ".insta-grid", start: "top 95%" }, duration: 1.2, y: 40, opacity: 0, stagger: 0.1, ease: "power3.out" });
+}
 
-gsap.from(".contact-header .creative-text", { scrollTrigger: { trigger: ".contact-section", start: "top 80%" }, duration: 1.2, y: 50, opacity: 0, ease: "power3.out" });
-gsap.from(".elegant-form input, .elegant-form textarea, .submit-btn", { scrollTrigger: { trigger: ".elegant-form", start: "top 85%" }, duration: 1.2, y: 30, opacity: 0, stagger: 0.15, ease: "power3.out" });
+// NEW SUBPAGES ANIMATIONS - ABOUT & PORTFOLIO
+if(document.querySelector(".about-scatter-hero")) {
+    gsap.utils.toArray(".scatter-img").forEach((item, i) => {
+        let speed = (i % 2 === 0) ? -150 : 150;
+        gsap.fromTo(item, { y: window.innerHeight * 0.4, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 1.8, ease: "power3.out", delay: i * 0.15 });
+        gsap.to(item, { y: speed, scrollTrigger: { trigger: ".about-scatter-hero", start: "top top", end: "bottom top", scrub: 1.2 } });
+    });
+    gsap.utils.toArray(".scatter-word").forEach((word, i) => {
+        let speed = (i % 2 === 0) ? 200 : -200;
+        gsap.fromTo(word, { y: window.innerHeight * 0.3, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "power3.out", delay: 0.5 + (i * 0.2) });
+        if(window.innerWidth > 900) {
+            gsap.to(word, { y: speed, letterSpacing: "3vw", scrollTrigger: { trigger: ".about-scatter-hero", start: "top top", end: "bottom top", scrub: 1.5 } });
+        } else {
+            gsap.to(word, { y: speed, scrollTrigger: { trigger: ".about-scatter-hero", start: "top top", end: "bottom top", scrub: 1.5 } });
+        }
+    });
+}
+if(document.querySelector(".portfolio-masonry")) {
+    gsap.from(".portfolio-grid-hero .huge-title span", { y: 150, opacity: 0, duration: 1.5, stagger: 0.1, ease: "power3.out" });
+    gsap.to(".portfolio-grid-hero .huge-title", { y: -150, scrollTrigger: { trigger: ".portfolio-grid-hero", start: "top top", end: "bottom top", scrub: 1 } });
+    
+    gsap.utils.toArray(".masonry-item").forEach((item, i) => {
+        let delay = (i % 4) * 0.15;
+        gsap.fromTo(item, { y: 200, opacity: 0 }, { scrollTrigger: { trigger: item, start: "top 95%" }, y: 0, opacity: 1, duration: 1.2, delay: delay, ease: "power3.out" });
+        if(window.innerWidth > 900) {
+            let speed = (i % 2 === 0) ? -100 : -30;
+            gsap.to(item, { y: speed, scrollTrigger: { trigger: item, start: "top bottom", end: "bottom top", scrub: 1 } });
+        }
+    });
+}
 
-gsap.from(".insta-post", { scrollTrigger: { trigger: ".insta-grid", start: "top 95%" }, duration: 1.2, y: 40, opacity: 0, stagger: 0.1, ease: "power3.out" });
-
+// FORM LOGIC
 const dateInput = document.querySelector('.date-input');
 if(dateInput) {
     const maxDate = new Date();
