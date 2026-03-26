@@ -212,9 +212,22 @@ if(document.querySelector(".opinions-hero")) {
 if(document.querySelector(".opinions-list")) {
     gsap.utils.toArray(".opinion-card").forEach((card) => {
         const img = card.querySelector(".opinion-image-wrapper");
-        const text = card.querySelector(".opinion-text-wrapper");
+        const author = card.querySelector(".author-huge");
+        const quote = card.querySelector(".quote");
         
         gsap.from(img, { scrollTrigger: { trigger: card, start: "top 85%" }, duration: 1.5, y: 100, opacity: 0, ease: "power3.out" });
-        gsap.from(text, { scrollTrigger: { trigger: card, start: "top 85%" }, duration: 1.5, y: 50, opacity: 0, ease: "power3.out", delay: 0.2 });
+        gsap.from(author, { scrollTrigger: { trigger: card, start: "top 85%" }, duration: 1.5, y: 60, opacity: 0, ease: "power3.out", delay: 0.1 });
+        
+        // Make the authors float organically natively
+        gsap.to(author, {
+            y: "-=15",
+            duration: gsap.utils.random(2.5, 3.5),
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 1.6 // Wait for entry animation to complete
+        });
+
+        gsap.from(quote, { scrollTrigger: { trigger: card, start: "top 85%" }, duration: 1.5, y: 30, opacity: 0, ease: "power3.out", delay: 0.3 });
     });
 }
