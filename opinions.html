@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPEKT | Opinie</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="animations.js"></script>
+</head>
+
+<body>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- GLOBAL HAMBURGER MENU -->
+    <div class="menu-btn" data-hover="text">
+        <div class="menu-btn-burger"></div>
+    </div>
+    <div class="mobile-nav">
+        <a href="index.html" class="mobile-link">STRONA GŁÓWNA</a>
+        <a href="about.html" class="mobile-link">O MNIE</a>
+        <a href="portfolio.html" class="mobile-link">PORTFOLIO</a>
+        <a href="stories.html" class="mobile-link">OPOWIEŚCI</a>
+        <a href="opinions.html" class="mobile-link">OPINIE</a>
+        <a href="index.html#portfolio" class="mobile-link">OFERTA</a>
+        <a href="contact.html" class="mobile-link">KONTAKT</a>
+        <a href="tel:+48668566898" class="mobile-link" style="font-size: 1.2rem; margin-top: 5vh; letter-spacing: 2px;">+48 668 566 898</a>
+    </div>
+
+    <!-- CORNER ELEMENTS -->
+    <a href="index.html" class="corner-link top-left logo" data-hover="text" style="color:#fff; mix-blend-mode:difference;">ASPEKT</a>
+    <div class="corner-link top-right" style="color:#fff; mix-blend-mode:difference;">KRZYSZTOF</div>
+    <div class="corner-link bottom-left" style="color:#fff; mix-blend-mode:difference;">IŁENDO</div>
+    <div class="corner-link bottom-right" style="color:#fff; mix-blend-mode:difference;">FOTOGRAFIA</div>
+
+    <section class="opinions-hero">
+        <div class="opinions-bg">
+            <img src="opinions/ASPEKT-pIK-199.jpg" alt="Pary powierzają mi swoje historie" class="hero-image">
+        </div>
+        <h1 class="huge-title opinions-title" data-hover="text">
+            <span>O</span><span>P</span><span>I</span><span>N</span><span>I</span><span>E</span>
+        </h1>
+    </section>
+
+    <section class="opinions-list">
+        
+        <!-- OPINION CARD 1 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-210.webp" alt="Świetny kontakt i atmosfera">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Krzysiek robił zdjęcia na moim weselu. Mimo, że wpadłam na jego profil przypadkowo to chyba był nam pisany😃 To jak przebiegła nasza współpraca to bajka. Nie należę do osób pewnych siebie przed aparatem a Krzysiek poprowadził nas tak, że wiedzieliśmy co i jak mamy robić. Mimo, że nie widzieliśmy się nigdy wcześniej na żywo od razu złapaliśmy super kontakt. Od gości dostaliśmy mnóstwo komplementów na temat naszego fotografa który był po prostu mega uśmiechniętym gościem całą imprezę. Głowa Krzyśka jest pełna niekończących się pomysłów na foty. Polecam serdecznie!"</p>
+                <p class="author">- OLA & TOMEK '23</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 2 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-264.webp" alt="Absolutne arcydzieła - pełne emocji">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Z całego serca, razem z żoną, polecamy Krzysia! Jakość jego usług zdecydowanie przerosła nasze oczekiwania. Paczka ze zdjęciami była przepięknie zapakowana - każdy detal dopracowany z niezwykłą starannością. A same fotografie? Absolutne arcydzieła - pełne emocji, światła i magii. Każde ujęcie to wyjątkowa pamiątka na całe życie.<br><br>Jesteśmy ogromnie wdzięczni za jego obecność w tym wyjątkowym dla nas dniu. Krzysiek nie tylko uchwycił najważniejsze momenty, ale stworzył atmosferę, w której czuliśmy się swobodnie i naturalnie. Dzięki temu zdjęcia są autentyczne i pełne życia.<br><br>To człowiek o niezwykłej aurze - jego obecność sprawia, że wszyscy wokół zaczynają się uśmiechać. Zaraża pozytywną energią i radością, która od razu udziela się innym.<br><br>Profesjonalizm, pasja i niesamowita energia - to cechy, które doskonale go opisują. Widać, że kocha to, co robi, a efekty jego pracy są naprawdę wyjątkowe.<br><br>Dziękujemy za piękne wspomnienia i z pełnym przekonaniem polecamy Krzysia każdemu, kto szuka nie tylko zdjęć, ale prawdziwych emocji uchwyconych w kadrach."</p>
+                <p class="author">- NATKA & MICHAŁ '25</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 3 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-179.webp" alt="Krzyś to mistrz w swojej dziedzinie">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Krzyś to mistrz w swojej dziedzinie. Jego zdjęcia to magia. Potrafi uchwycić chwile idealne, nawet tak nie fotogenicznych osób jak my. Praca z nim to czysta przyjemność. Będziemy polecać jego wszystkim naszym znajomym i rodzinie. I sami już wiemy że chcemy aby robił zdjęcia na wszystkich naszych wydarzeniach rodzinnych w przyszłości. Dziękujemy bardzo ♥️"</p>
+                <p class="author">- NATALKA & PRZEMEK '22</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 4 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-41.webp" alt="Zachwyceni współpracą z Krzysiem">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Jesteśmy zachwyceni współpracą z Krzysiem 🤍 uchwycił cudowne chwilę podczas naszej sesji narzeczeńskiej, dnia ślubu oraz sesji poślubnej i dzięki niemu zostaną one naszym pięknym wspomnieniem. Dziękujemy! Jeśli czytacie tą opinię zastanawiając się czy warto napisać do niego o ofertę i finalnie się na niego zdecydować to nie miejcie wątpliwości! Totalnie warto !!!"</p>
+                <p class="author">- AGA & KRZYŚ '25</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 5 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-138.webp" alt="Sesja narzeczeńska cudowna">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Polecam z całego serca ! ❤️ Nasza sesja narzeczeńska cudowna !😍😍<br>Podczas sesji Krzysio dużo pomaga, doradza, panuje super-luźna atmosfera. Zdjęcia przecudowane, zachwyciły nie tylko nas, ale również naszych najbliższych 🩷<br>Bardzo się cieszymy, że trafiliśmy właśnie na Krzysia i że to on bedzie fotografem w naszym najważniejszym dniu ! Nie możemy się doczekać kolejnej współpracy w sierpniu 👰♂️🤵. 📸 Najlepszy fotograf !"</p>
+                <p class="author">- PAULINA & GABRYŚ '22</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 6 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-214.webp" alt="Uwiecznienie wyjątkowych momentów">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Zdjęcia, fotografie, uwiecznienie wyjątkowych momentów, to wszystko możesz wyrzucić ze swojej listy zmartwień podczas przeżywania twojego ważnego i emocjonującego dnia. Krzysztof zajmie się wszystkim i sprawi iż oglądając te zdjęcia cofniesz się w czasie do tych chwil i na nowo przeżyjesz tamte wspomnienia tak pięknie uwiecznione w jednej klatce. Oprócz profesjonalizmu technicznego, Pan Fotograf to prze gość, jego aparycja sprawia iż zapominasz o nerwach, rozluźniasz się a pozy same przychodzą ci do głowy oraz sprawiają radość. Serdecznie polecam."</p>
+                <p class="author">- WIKA & KRZYŚ '24</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 7 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-215.webp" alt="Stworzył klimat i pasję">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Nie mamy jeszcze wszystkich zdjęć od Krzyśka, ale już wiem, że lepiej nie mogliśmy wybrać! 🤍<br>Od samego początku stworzył nam swoją osobą taki klimat, że obydwoje zapomnieliśmy o tym, że nie lubimy być fotografowani. Wszyscy goście, a tym bardziej MY! byliśmy i jesteśmy zachwyceni Krzysiem, jego osobowością i pasją, która bije od niego na każdą stronę. Polecamy z całego serca! ✋🏻"</p>
+                <p class="author">- KASIA & BARTEK '22</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 8 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-216.webp" alt="Sesja narzeczeńska bez stresu">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Do Krzysia wybraliśmy się na sesję narzeczeńską.<br>Od początku nami kierował, jak mamy się ustawić, gdzie iść. Nie czuliśmy stresu, mimo, że wcześniej nie byliśmy na takiej profesjonalnej sesji.<br>Całą sesję przegadaliśmy, atmosfera była świetna.<br>Zdjęcia dostaliśmy po kilku dniach, i oczywiście nie zawiedliśmy się, bo są IDEALNE 🥰 Polecam z całego serca! ❤"</p>
+                <p class="author">- KASIA & SLAVKO '21</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 9 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-225.webp" alt="Pełen pasji i ogrom doświadczenia">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Krzysiek, fotograf, ojciec, kumpel... tego człowieka nie da się opisać nawet jednym zdaniem. Przede wszystkim jest pełen pasji i ma ogrom doświadczenia. To widać nie tylko podczas jego pracy czy oglądania efektów sesji - to czuć już w trakcie współpracy 🥺❤️<br>Bardzo polecamy Krzysztofa!<br>Efekty fotoreportażu z dnia naszego ślubu przebiły oczekiwania o 1000%<br>Byliśmy przekonani, że nie umiemy pozować i jesteśmy niefotogeniczni, okazało to się mylne. Dostawaliśmy na bieżąco propozycje i porady jak się ustawić lub co zmienić 😇<br>Zdjęcia, które zrobił Krzyś to nie jest zwykła pamiątka... to kadry w których uchwycone są najmniejsze emocje ❤️"</p>
+                <p class="author">- NATKA & MICHAŁ '25</p>
+            </div>
+        </div>
+
+        <!-- OPINION CARD 10 -->
+        <div class="opinion-card">
+            <div class="opinion-image-wrapper" data-hover="image">
+                <img src="images/ASPEKT-pEK-227.webp" alt="Idealne i wymarzone wspomnienia">
+            </div>
+            <div class="opinion-text-wrapper">
+                <p class="quote">"Jesteśmy totalnie zachwyceni współpracą z Krzysztofem 🤍 Jest on przede wszystkim człowiekiem pełnym pasji i miłości do swojej pracy. Zdjęcia z naszego wesela są idealne i wymarzone. Krzysztof potrafi uchwycić najpiękniejsze emocje, ma wiele kreatywnych pomysłów. Jest osobą bardzo wyluzowaną, ale również bardzo profesjonalną dzięki czemu nie stresowaliśmy się w dniu ślubu. Potrafi rozluźnić atmosferę swoim podejściem i uśmiechem. Ma doskonałe wyczucie chwili. Zdjęcia są bardzo klimatyczne, niebanalne i ciekawe. Na zdjęciach złapane są wszystkie detale. Krzysztofowi nie straszne jest nawet przeprawienie się na druga stronę Bałtyku i fotografowanie w ciężkich warunkach pogodowych, by zrobić piękne zdjęcia na sesji plenerowej wśród szwedzkich fal 😁 🌊Dziękujemy za najwspanialasza pamiątkę na całe życie i możliwość przeniesienia się znowu do naszego wyjątkowego dnia. Z caaaaalego serca bardzo polecamy wszystkim, którzy szukają idealnego fotografa! 💗"</p>
+                <p class="author">- EWELINA & BARTOSZ '24</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="site-footer">WEB CR8 KRZYSZTOF ILENDO &copy;<br>FOTOGRAF BIAŁYSTOK WARSZAWA</footer>
+</body>
+
+</html>

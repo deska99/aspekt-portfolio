@@ -680,6 +680,70 @@ body {
     top: 40px;
 }
 
+/* STORIES PAGE */
+.stories-hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stories-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.stories-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stories-title {
+    color: var(--bg) !important;
+    font-size: clamp(4rem, 9.5vw, 14rem); /* Zmniejszono font aby 9 liter zmieściło się w viewport */
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.stories-coming-soon {
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 5vw;
+}
+
+.stories-coming-soon .creative-text {
+    font-size: clamp(3rem, 6vw, 8rem);
+    text-align: center;
+    color: var(--text);
+    mix-blend-mode: normal;
+}
+
+/* STORIES RESPONSYWNOSC DODATKOWA */
+@media (max-width: 900px) {
+    .stories-hero {
+        height: 60vh;
+    }
+    .stories-title {
+        font-size: clamp(2rem, 9.5vw, 4rem) !important;
+        width: 95vw !important;
+        letter-spacing: normal !important;
+    }
+    .stories-coming-soon {
+        min-height: 30vh;
+    }
+    .stories-coming-soon .creative-text {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+}
 
 @media (max-width: 900px) {
 
@@ -1218,5 +1282,135 @@ body {
         width: 70vw !important;
         height: 20vh !important;
         z-index: 2 !important;
+    }
+}
+
+/* OPINIONS PAGE */
+.opinions-hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.opinions-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.opinions-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom center; /* docięte z góry */
+}
+
+.opinions-title {
+    color: var(--bg) !important;
+    font-size: clamp(4rem, 15vw, 20rem);
+    width: 90vw;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--f-sans);
+    mix-blend-mode: normal;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.opinions-list {
+    padding: 10vh 0;
+    background: var(--bg);
+    overflow-x: hidden;
+}
+
+.opinion-card {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    margin-bottom: 20vh;
+}
+
+.opinion-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.opinion-image-wrapper {
+    width: 50vw;
+    height: 85vh;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.opinion-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.opinion-image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+.opinion-text-wrapper {
+    width: 50vw;
+    padding: 0 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.opinion-text-wrapper .quote {
+    font-family: var(--f-serif);
+    font-size: clamp(0.85rem, 1.3vw, 1.5rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 2rem;
+}
+
+.opinion-text-wrapper .author {
+    font-family: var(--f-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* OPINIONS RWD */
+@media (max-width: 900px) {
+    .opinions-hero {
+        height: 60vh;
+    }
+    .opinions-title {
+        font-size: clamp(3rem, 15vw, 6rem) !important;
+        width: 100vw !important;
+    }
+    .opinion-card, .opinion-card:nth-child(even) {
+        flex-direction: column;
+        margin-bottom: 15vh;
+    }
+    .opinion-image-wrapper {
+        width: 100vw;
+        height: 60vh;
+    }
+    .opinion-text-wrapper {
+        width: 100vw;
+        padding: 5vh 8vw 0 8vw;
+    }
+    .opinion-text-wrapper .quote {
+        font-size: 1.1rem;
     }
 }

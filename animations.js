@@ -188,3 +188,33 @@ if(form) {
         });
     });
 }
+
+// STORIES PAGE ANIMATIONS
+if(document.querySelector(".stories-hero")) {
+    gsap.from(".stories-hero .huge-title span", { y: 150, opacity: 0, duration: 1.5, stagger: 0.1, ease: "power3.out" });
+    gsap.to(".stories-hero .huge-title", { y: -150, scrollTrigger: { trigger: ".stories-hero", start: "top top", end: "bottom top", scrub: 1 } });
+    gsap.fromTo(".stories-hero-bg img", { scale: 1.2, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 2, ease: "power3.out" });
+    gsap.to(".stories-hero-bg", { scrollTrigger: { trigger: ".stories-hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.9 });
+}
+
+if(document.querySelector(".stories-coming-soon")) {
+    gsap.from(".stories-coming-soon .creative-text", { scrollTrigger: { trigger: ".stories-coming-soon", start: "top 85%" }, duration: 1.5, y: 50, opacity: 0, ease: "power3.out" });
+}
+
+// OPINIONS PAGE ANIMATIONS
+if(document.querySelector(".opinions-hero")) {
+    gsap.from(".opinions-title span", { y: 150, opacity: 0, duration: 1.5, stagger: 0.1, ease: "power3.out" });
+    gsap.to(".opinions-title", { y: -150, scrollTrigger: { trigger: ".opinions-hero", start: "top top", end: "bottom top", scrub: 1 } });
+    gsap.fromTo(".opinions-bg img", { scale: 1.2, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 2, ease: "power3.out" });
+    gsap.to(".opinions-bg", { scrollTrigger: { trigger: ".opinions-hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.9 });
+}
+
+if(document.querySelector(".opinions-list")) {
+    gsap.utils.toArray(".opinion-card").forEach((card) => {
+        const img = card.querySelector(".opinion-image-wrapper");
+        const text = card.querySelector(".opinion-text-wrapper");
+        
+        gsap.from(img, { scrollTrigger: { trigger: card, start: "top 85%" }, duration: 1.5, y: 100, opacity: 0, ease: "power3.out" });
+        gsap.from(text, { scrollTrigger: { trigger: card, start: "top 85%" }, duration: 1.5, y: 50, opacity: 0, ease: "power3.out", delay: 0.2 });
+    });
+}
