@@ -231,3 +231,55 @@ if(document.querySelector(".opinions-list")) {
         gsap.from(quote, { scrollTrigger: { trigger: card, start: "top 85%" }, duration: 1.5, y: 30, opacity: 0, ease: "power3.out", delay: 0.3 });
     });
 }
+
+// OFERTA 2027 (Password Protected Pages) ANIMATIONS
+window.initGlobalAnimations = function() {
+    ScrollTrigger.refresh();
+    
+    // Oferta 2027 hero specific
+    if (document.querySelector('.editorial-hero')) {
+        gsap.from(".editorial-hero h1", { opacity: 0, y: 100, duration: 1.5, ease: "power3.out" });
+        gsap.fromTo(".editorial-hero img", { scale: 1.2, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 2, ease: "power3.out" });
+        gsap.to(".editorial-hero img", { scrollTrigger: { trigger: ".editorial-hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.9 });
+    }
+
+    if (document.querySelector('.toc-list')) {
+        gsap.utils.toArray(".toc-list li").forEach((li, i) => {
+            gsap.from(li, { scrollTrigger: { trigger: ".toc-section", start: "top 80%" }, opacity: 0, x: -50, duration: 1, delay: i * 0.1, ease: "power3.out" });
+        });
+    }
+
+    // Split sections and floating images
+    if (document.querySelector('.split-section')) {
+        gsap.utils.toArray(".split-section").forEach((section) => {
+            const side = section.querySelector(".text-side");
+            const img = section.querySelector(".image-side");
+            if (side) gsap.from(side, { scrollTrigger: { trigger: section, start: "top 80%" }, opacity: 0, y: 50, duration: 1.2, ease: "power3.out" });
+            if (img) gsap.from(img, { scrollTrigger: { trigger: section, start: "top 80%" }, opacity: 0, scale: 1.1, duration: 1.5, ease: "power3.out" });
+        });
+    }
+
+    // Add scatter functionality
+    const scatterDivs = document.querySelectorAll("section[style*='display: flex; gap: 2vw'] div");
+    if (scatterDivs.length > 0) {
+        gsap.utils.toArray(scatterDivs).forEach((div, i) => {
+           gsap.from(div, { scrollTrigger: { trigger: div.parentElement, start: "top 75%" }, opacity: 0, y: 100, duration: 1.5, delay: i * 0.15, ease: "power3.out" }); 
+        });
+    }
+
+    // Pricing grid
+    if (document.querySelector('.pricing-card')) {
+        gsap.utils.toArray(".pricing-card").forEach((card, i) => {
+            gsap.from(card, { scrollTrigger: { trigger: ".pricing-grid", start: "top 85%" }, opacity: 0, y: 80, duration: 1.2, delay: i * 0.1, ease: "power3.out" });
+        });
+    }
+
+    // Re-verify the scroll trigger for reviews because they were hidden on load
+    if(document.querySelector(".review-block")) {
+        gsap.utils.toArray(".review-block").forEach((block) => {
+            gsap.from(block, { scrollTrigger: { trigger: block, start: "top 85%" }, duration: 1.5, y: 80, opacity: 0, ease: "power3.out" });
+        });
+    }
+
+    setTimeout(() => { ScrollTrigger.refresh(); }, 500);
+};

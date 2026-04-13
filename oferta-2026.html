@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPEKT | Oferta 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="animations.js"></script>
+    <style>
+        .password-container {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: var(--bg);
+            z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .password-input {
+            padding: 15px; font-size: 1.2rem; text-align: center; border: 1px solid var(--text);
+            outline: none; background: transparent; font-family: var(--f-serif);
+            color: var(--text);
+            margin-bottom: 2rem;
+            width: 80%;
+            max-width: 300px;
+        }
+        .password-btn {
+            padding: 15px 30px; font-family: var(--f-sans);
+            background: var(--text); color: var(--bg); border: none; cursor: pointer;
+            letter-spacing: 2px; font-size: 0.9rem; text-transform: uppercase;
+        }
+        .password-btn:hover {
+            opacity: 0.8;
+        }
+        .password-error {
+            color: var(--accent); margin-top: 1.5rem; display: none;
+            font-family: var(--f-serif); font-size: 1.2rem; font-style: italic;
+        }
+        #main-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container" id="password-screen">
+        <h2 style="font-family: var(--f-sans); font-size: 1.5rem; margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text); text-align: center;">OFERTA ŚLUBNA 2026</h2>
+        <input type="password" id="password-input" class="password-input" placeholder="WPISZ HASŁO">
+        <button onclick="checkPassword()" class="password-btn" data-hover="text">WEJDŹ</button>
+        <p id="error-msg" class="password-error">Niepoprawne hasło.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var pwd = document.getElementById("password-input").value;
+            if (pwd === "koks2026") {
+                document.getElementById("password-screen").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+                
+                // Initialize animations if function exists after revealing content
+                if(typeof initGlobalAnimations === 'function') {
+                    // Try to wait a tiny bit for DOM to render the display block
+                    setTimeout(initGlobalAnimations, 100);
+                } else {
+                    // Generic fallback if there is a problem with animations
+                    if (window.ScrollTrigger) ScrollTrigger.refresh();
+                }
+            } else {
+                document.getElementById("error-msg").style.display = "block";
+                setTimeout(() => document.getElementById("error-msg").style.display = "none", 3000);
+            }
+        }
+        
+        document.getElementById("password-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkPassword();
+            }
+        });
+    </script>
+
+    <div id="main-content">
+        <div class="cursor"></div>
+        <div class="cursor-follower"></div>
+
+        <!-- GLOBAL HAMBURGER MENU -->
+        <div class="menu-btn" data-hover="text">
+            <div class="menu-btn-burger"></div>
+        </div>
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-link">STRONA GŁÓWNA</a>
+            <a href="about.html" class="mobile-link">O MNIE</a>
+            <a href="portfolio.html" class="mobile-link">PORTFOLIO</a>
+            <a href="stories.html" class="mobile-link">OPOWIEŚCI</a>
+            <a href="opinions.html" class="mobile-link">OPINIE</a>
+            <a href="index.html#portfolio" class="mobile-link">OFERTA</a>
+            <a href="contact.html" class="mobile-link">KONTAKT</a>
+        </div>
+
+        <!-- CORNER ELEMENTS -->
+        <a href="index.html" class="corner-link top-left logo" data-hover="text">ASPEKT</a>
+        <div class="corner-link top-right">KRZYSZTOF</div>
+        <div class="corner-link bottom-left">IŁENDO</div>
+        <div class="corner-link bottom-right">FOTOGRAFIA</div>
+
+        <section class="about-story" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;text-align:center;">
+            <div class="story-content">
+                <h2 class="creative-text" style="position:relative; top:0;">Oferta<br><i>2026.</i></h2>
+                <div class="story-text" style="margin-top: 5vh; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <p>Witaj w ofercie na rok 2026!</p>
+                    <br>
+                    <p>Tutaj znajdą się szczegółowe informacje dotyczące pakietów ślubnych na sezon 2026. Skontaktuj się ze mną, aby omówić szczegóły i zarezerwować termin.</p>
+                    <br>
+                    <p><a href="contact.html" style="color: var(--text); font-style: italic; text-decoration: underline;">Przejdź do formularza kontaktowego</a></p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="insta-footer">
+            <div class="insta-header">
+                <h3>ASPEKT NA INSTAGRAMIE</h3>
+                <a href="https://instagram.com/aspektfotografia" target="_blank" data-hover="text" class="insta-link">@aspektfotografia</a>
+            </div>
+        </footer>
+        <footer class="site-footer">WEB CR8 KRZYSZTOF ILENDO &copy;<br>FOTOGRAF BIAŁYSTOK WARSZAWA</footer>
+    </div>
+</body>
+</html>
