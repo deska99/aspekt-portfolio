@@ -93,7 +93,7 @@ if(scrollContainer) {
     }
 }
 
-if(document.querySelector(".review-block")) {
+if(document.querySelector(".review-block") && !document.getElementById("password-screen")) {
     gsap.utils.toArray(".review-block").forEach((block) => {
         gsap.from(block, { scrollTrigger: { trigger: block, start: "top 85%" }, duration: 1.5, y: 80, opacity: 0, ease: "power3.out" });
     });
@@ -238,9 +238,9 @@ window.initGlobalAnimations = function() {
     
     // Oferta 2027 hero specific
     if (document.querySelector('.editorial-hero')) {
-        gsap.from(".editorial-hero h1", { opacity: 0, y: 100, duration: 1.5, ease: "power3.out" });
-        gsap.fromTo(".editorial-hero img", { scale: 1.2, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 2, ease: "power3.out" });
-        gsap.to(".editorial-hero img", { scrollTrigger: { trigger: ".editorial-hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.9 });
+        gsap.from(".editorial-hero .hero-content", { opacity: 0, y: 100, duration: 1.5, ease: "power3.out" });
+        gsap.fromTo(".editorial-hero img", { filter: "blur(10px)", opacity: 0 }, { filter: "blur(0px)", opacity: 0.3, duration: 2, ease: "power3.out" });
+        gsap.to(".editorial-hero img", { scrollTrigger: { trigger: ".editorial-hero", start: "top top", end: "bottom top", scrub: 1 }, y: 200, scale: 0.9, transformOrigin: "bottom center" });
     }
 
     if (document.querySelector('.toc-list')) {
@@ -278,6 +278,37 @@ window.initGlobalAnimations = function() {
     if(document.querySelector(".review-block")) {
         gsap.utils.toArray(".review-block").forEach((block) => {
             gsap.from(block, { scrollTrigger: { trigger: block, start: "top 85%" }, duration: 1.5, y: 80, opacity: 0, ease: "power3.out" });
+        });
+    }
+
+    // Portfolio Masonry logic for Offer Page
+    if(document.querySelector(".portfolio-masonry")) {
+        gsap.utils.toArray(".portfolio-masonry .masonry-item").forEach((item, i) => {
+            gsap.fromTo(item, 
+                { opacity: 0, y: gsap.utils.random(50, 150) },
+                { 
+                    scrollTrigger: {
+                        trigger: ".portfolio-masonry",
+                        start: "top 85%"
+                    },
+                    opacity: 1, 
+                    y: 0, 
+                    duration: gsap.utils.random(1, 2),
+                    delay: Math.random() * 0.5,
+                    ease: "power3.out"
+                }
+            );
+
+            gsap.to(item, {
+                scrollTrigger: {
+                    trigger: ".portfolio-masonry",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                },
+                y: gsap.utils.random(-100, -300),
+                ease: "none"
+            });
         });
     }
 
