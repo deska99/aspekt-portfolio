@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPEKT | Oferta 2026</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="animations.js"></script>
+    <style>
+        .password-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .password-input {
+            padding: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+            border: 1px solid var(--text);
+            outline: none;
+            background: transparent;
+            font-family: var(--f-serif);
+            color: var(--text);
+            margin-bottom: 2rem;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        .password-btn {
+            padding: 15px 30px;
+            font-family: var(--f-sans);
+            background: var(--text);
+            color: var(--bg);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .password-btn:hover {
+            opacity: 0.8;
+        }
+
+        .password-error {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            display: none;
+            font-family: var(--f-serif);
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        #main-content {
+            display: none;
+            background-color: var(--bg);
+        }
+
+        /* NEW PREMIUM STYLE FOR OFFER PAGE */
+        .editorial-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .editorial-hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            /* Fade image behind text */
+            filter: grayscale(80%);
+            /* Noir feel */
+        }
+
+        .editorial-hero h1 {
+            position: relative;
+            font-family: var(--f-serif);
+            font-size: clamp(3rem, 8vw, 8rem);
+            color: var(--text);
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1;
+            z-index: 2;
+        }
+
+        .editorial-hero h1 span {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 2rem;
+            letter-spacing: 0.4rem;
+            font-family: var(--f-sans);
+        }
+
+        .toc-section {
+            padding: 15vh 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .toc-section h2 {
+            font-family: var(--f-sans);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 4rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.5rem;
+            font-family: var(--f-serif);
+            font-style: italic;
+            line-height: 2.5;
+        }
+
+        .toc-list li span {
+            font-family: var(--f-sans);
+            font-size: 0.8rem;
+            margin-right: 1rem;
+            font-style: normal;
+        }
+
+        .dark-section {
+            background-color: #050505;
+            color: var(--bg);
+            padding: 15vh 5vw;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 5rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media(max-width: 900px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pricing-card {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 3rem 2rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card h4 {
+            font-family: var(--f-sans);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            font-family: var(--f-serif);
+            font-size: 1.1rem;
+            line-height: 2;
+            opacity: 0.8;
+            flex-grow: 1;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-card ul strong {
+            font-family: var(--f-sans);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card .price {
+            font-family: var(--f-sans);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .zadatek {
+            font-family: var(--f-sans);
+            font-size: 0.7rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card .desc {
+            font-family: var(--f-serif);
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .split-section {
+            display: flex;
+            align-items: stretch;
+            min-height: 80vh;
+        }
+
+        .split-section .image-side {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .split-section .text-side {
+            flex: 1;
+            padding: 10vh 8vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .reviews-section {
+            padding: 15vh 5vw;
+        }
+
+        .review-block {
+            max-width: 800px;
+            margin: 0 auto 8rem auto;
+            text-align: center;
+        }
+
+        .review-block p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .review-block .author {
+            font-family: var(--f-sans);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .djs-grid {
+            column-count: 2;
+            column-gap: 4rem;
+            max-width: 800px;
+            margin: 4rem auto;
+            font-family: var(--f-sans);
+            font-size: 0.9rem;
+            line-height: 2.5;
+            letter-spacing: 2px;
+            text-align: left;
+        }
+
+        @media(max-width: 768px) {
+            .split-section {
+                flex-direction: column;
+            }
+
+            .split-section .image-side {
+                min-height: 50vh;
+            }
+
+            .djs-grid {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor" style="z-index: 100000;"></div>
+    <div class="cursor-follower" style="z-index: 100000;"></div>
+
+    <div class="password-container" id="password-screen">
+        <h2
+            style="font-family: var(--f-sans); font-size: 1.5rem; margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text); text-align: center;">
+            OFERTA ŚLUBNA 2026</h2>
+        <input type="password" id="password-input" class="password-input" placeholder="WPISZ HASŁO">
+        <button onclick="checkPassword()" class="password-btn" data-hover="text">WEJDŹ</button>
+        <p id="error-msg" class="password-error">Niepoprawne hasło.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var pwd = document.getElementById("password-input").value;
+            if (pwd === "essa2026") {
+                sessionStorage.setItem("oferta2026_unlocked", "true");
+                unlockContent();
+            } else {
+                document.getElementById("error-msg").style.display = "block";
+                setTimeout(() => document.getElementById("error-msg").style.display = "none", 3000);
+            }
+        }
+
+        function unlockContent() {
+            document.getElementById("password-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+            
+            if (typeof initGlobalAnimations === 'function') {
+                setTimeout(initGlobalAnimations, 100);
+            } else {
+                if (window.ScrollTrigger) ScrollTrigger.refresh();
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", function() {
+            if (sessionStorage.getItem("oferta2026_unlocked") === "true") {
+                unlockContent();
+            }
+        });
+        
+        document.getElementById("password-input").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkPassword();
+            }
+        });
+    </script>
+
+    <div id="main-content">
+
+        <!-- GLOBAL HAMBURGER MENU -->
+        <div class="menu-btn" data-hover="text">
+            <div class="menu-btn-burger"></div>
+        </div>
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-link">STRONA GŁÓWNA</a>
+            <a href="about.html" class="mobile-link">O MNIE</a>
+            <a href="portfolio.html" class="mobile-link">PORTFOLIO</a>
+            <a href="stories.html" class="mobile-link">OPOWIEŚCI</a>
+            <a href="opinions.html" class="mobile-link">OPINIE</a>
+            <a href="contact.html" class="mobile-link">KONTAKT</a>
+        </div>
+
+        <!-- CORNER ELEMENTS -->
+        <a href="index.html" class="corner-link top-left logo" data-hover="text">ASPEKT</a>
+        <div class="corner-link top-right">KRZYSZTOF</div>
+        <div class="corner-link bottom-left">IŁENDO</div>
+        <div class="corner-link bottom-right">FOTOGRAFIA</div>
+
+        <!-- HERO -->
+        <section class="editorial-hero" style="background: #000; color: #fff; text-align: left; padding: 0 5vw; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+            <img src="images/ASPEKT-pEK-214.webp" alt="Wedding Guide" style="opacity: 0.3; object-position: right center;">
+            <div style="position: relative; z-index: 10; width: 100%;" class="hero-content">
+                <h1 style="font-family: var(--f-sans); font-weight: 700; line-height: 0.85; margin: 0; text-transform: uppercase;">
+                    <span style="font-size: clamp(3rem, 10vw, 12rem); color: var(--accent); display: block; margin-left: -2vw;">BEST</span>
+                    <span style="font-size: clamp(2rem, 7vw, 10rem); color: #fff; display: block;">PHOTOGRAPHER</span>
+                    <span style="font-size: clamp(3rem, 10vw, 12rem); color: #fff; display: block; padding-left: 13vw;">OFFER</span>
+                </h1>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; margin-top: 5rem; gap: 2rem;">
+                    <div style="font-family: var(--f-serif); font-size: 1.5rem; font-style: italic; max-width: 500px; opacity: 0.8; line-height: 1.5;">
+                        "Nie wszystko da się powtórzyć.<br>Dlatego warto to zapamiętać."
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-family: var(--f-serif); font-size: clamp(4rem, 10vw, 8rem); line-height: 0.7; color: var(--accent); font-style: italic;">2026</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOC -->
+        <section class="toc-section">
+            <h2>CO TU ZNAJDZIECIE</h2>
+            <ul class="toc-list">
+                <li><span>01</span> O Krzysiu - Przedstawienie</li>
+                <li><span>02</span> Cennik - Reportaż Ślubny</li>
+                <li><span>03</span> Cennik Sesji - Inne Rzeczy</li>
+                <li><span>04</span> Kto tam jeszcze? - Polecanki</li>
+                <li><span>05</span> W kontakcie ;) - Do Zobaczenia</li>
+            </ul>
+        </section>
+
+        <!-- INTRODUCTION - SPLIT -->
+        <section class="split-section">
+            <div class="image-side" style="background-image: url('images/ASPEKT-pEK-264.webp');"></div>
+            <div class="text-side">
+                <h2 style="font-family: var(--f-sans); font-size: 1.2rem; margin-bottom: 2rem;">01 / O KRZYSIU</h2>
+                <div style="font-size: 1.3rem; line-height: 1.6;">
+                    <p>No siemanko, jak już pewnie wiecie nazywam się Krzyś i robię zdjęcia ludziom w najważniejszych,
+                        najpiękniejszych i w ogóle NAJ momentach ich żyć :)</p><br>
+                    <p>Staram się tworzyć podczas zdjęć luźną atmosferę, zero spiny, mnóstwo śmiechu i radości. Lubię
+                        nawiązać z Wami relację, aby zostać nie tylko człowiekiem od zdjęć ale także przyjacielem,
+                        wsparciem, pomocnikiem w trakcie BIG DAYY.</p><br>
+                    <p>Nie przepadam za sztucznymi, pozowanymi zdjęciami, lubię kiedy jesteście sobą i reportaż oddaje w
+                        100% to kim jesteście (oczywiście pomagam bo wiem, że większość z Was nie wie co ma robić 😜).
+                    </p><br>
+                    <p>Fotografia to moja jedyna praca. Praca czy pasja w sumie nie wiem, ale dzięki temu mam za co żyć
+                        więc spoko ✌🏼😅</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CREATIVE SCATTER IMAGES -->
+        <section
+            style="display: flex; gap: 2vw; padding: 10vh 5vw; background: var(--bg); justify-content: center; overflow: hidden; flex-wrap: wrap;">
+            <div
+                style="flex: 1 1 300px; min-height: 500px; background: url('images/ASPEKT-pEK-138.webp') center/cover; margin-top: 5vh; max-width: 400px;">
+            </div>
+            <div
+                style="flex: 1 1 300px; min-height: 600px; background: url('images/ASPEKT-pEK-17.webp') center/cover; max-width: 500px;">
+            </div>
+            <div
+                style="flex: 1 1 300px; min-height: 500px; background: url('images/ASPEKT-pEK-231.webp') center/cover; margin-top: 15vh; max-width: 400px;">
+            </div>
+        </section>
+
+        <!-- PRICING - NOIR STYLE -->
+        <section class="dark-section">
+            <h2 style="font-family: var(--f-serif); font-size: 4rem; text-align: center; margin-bottom: 1rem;">CENNIK
+            </h2>
+            <h3
+                style="font-family: var(--f-sans); font-size: 1rem; text-align: center; letter-spacing: 4px; opacity: 0.5;">
+                02 / REPORTAŻ ŚLUBNY</h3>
+
+            <div class="pricing-grid">
+                <!-- PACK 1 -->
+                <div class="pricing-card">
+                    <h4>PAKIET Nᵒ 1<br><span
+                            style="font-family: var(--f-serif); text-transform: none; font-size: 1.5rem; font-style:italic;">"To
+                            co najważniejsze"</span></h4>
+                    <ul>
+                        <li>Od przygotowań do 1.00 (max 13h)</li>
+                        <li>700 zdjęć z reportażu</li>
+                        <li>100 odbitek w drewnianym pudełku</li>
+                        <li>Galeria online na 12 miesięcy zabezpieczona hasłem</li>
+                    </ul>
+                    <div class="price">6 400 PLN</div>
+                    <div class="zadatek">+ 1 000 PLN (ZADATEK)</div>
+                    <div class="desc">Spoko opcja jeśli macie alergię na zdjęcia, aparat i klisza pęka kiedy robią Wam
+                        zdjęcia, ale warto jednak mieć jakąś pamiątkę prawda? 🤎 W tej opcji jestem z Wami w dniu
+                        Waszego ślubu oraz wesela. Od początku do końca. To znaczy do 1.00 w nocy. Po tej godzinie
+                        goście pokażą swoje prawdziwe oblicze, bo będą wiedzieli, że ja już tego nie zobaczę haha.
+                        Przygotowania błogosławieństwo, zdjęcia z rodziną, ślub, życzenia, pierwszy taniec, gorzka
+                        wódka, tańce, zabawy, oczepiny, wszędzie tam będę czuwał. Staram się również ogarnąć chwilkę aby
+                        Wam zorganizować mini plener, chwilę dla naszej trójki 🤎</div>
+                </div>
+
+                <!-- PACK 2 -->
+                <div class="pricing-card">
+                    <h4>PAKIET Nᵒ 2<br><span
+                            style="font-family: var(--f-serif); text-transform: none; font-size: 1.5rem; font-style:italic;">"Dzień
+                            to za mało"</span></h4>
+                    <ul>
+                        <li>Od przygotowań do 1.00 (max 13h)</li>
+                        <li>700 zdjęć z reportażu</li>
+                        <li>100 odbitek w drewnianym pudełku</li>
+                        <li>Galeria online na 12 miesięcy zabezpieczona hasłem</li>
+                        <li><strong>80 ZDJĘĆ Z PLENERU ŚLUBNEGO</strong></li>
+                        <li><strong>20 ODBITEK Z PLENERU</strong></li>
+                    </ul>
+                    <div class="price">7 500 PLN</div>
+                    <div class="zadatek">+ 1 000 PLN (ZADATEK)</div>
+                    <div class="desc">W tym pakiecie, otrzymujecie dodatkowe spotkanie z fotografem, czyli ze mną 🫶🏼,
+                        oczywiście innego dnia po weselu. Nazywamy to plenerem ślubnym. Osobiście nazywam to bardziej
+                        spacerem z aparatem. Super pomysł, aby na spokojnie się spotkać, pogadać o weselu. Chwila dla
+                        Was na odpoczynek, spędzenie chwili razem. Żadnej spiny przed obiektywem. Pełen luz 🤎 🤙🏼
+                    </div>
+                </div>
+
+                <!-- PACK 3 -->
+                <div class="pricing-card">
+                    <h4>PAKIET Nᵒ 3<br><span
+                            style="font-family: var(--f-serif); text-transform: none; font-size: 1.5rem; font-style:italic;">"Pakiet
+                            Bydlak"</span></h4>
+                    <ul>
+                        <li>Od przygotowań do 1.00 (max 13h)</li>
+                        <li>700 zdjęć z reportażu</li>
+                        <li>100 odbitek w drewnianym pudełku</li>
+                        <li>Galeria online na 12 miesięcy zabezpieczona hasłem</li>
+                        <li><strong>80 ZDJĘĆ Z PLENERU ŚLUBNEGO</strong></li>
+                        <li><strong>20 ODBITEK Z PLENERU</strong></li>
+                        <li><strong>50 ZDJĘĆ Z SESJI NARZECZEŃSKIEJ</strong></li>
+                        <li><strong>10 ODBITEK Z SESJI NARZECZEŃSKIEJ</strong></li>
+                    </ul>
+                    <div class="price">8 400 PLN</div>
+                    <div class="zadatek">+ 1 000 PLN (ZADATEK)</div>
+                    <div class="desc">Genialny pakiet i wcale nie dlatego, że najwięcej płacicie. Tutaj spotykamy się aż
+                        trzy razy! 🤩 Sesja narzeczeńska, ślub i wesele oraz plener ślubny. Po takim maratonie możemy
+                        się nazwać prawie rodziną. Osobiście i według wielu par super opcja dla ludzi, którzy panicznie
+                        boją się aparatu, żeby oswoić się rolą modela i gwiazdy i nie uciekać na weselu ode mnie 🤯 Czas
+                        kiedy możemy się poznać, pogadać porobić zdjęcia i opowiedzieć o weselichu 🤎</div>
+                </div>
+
+                <!-- PACK 4 -->
+                <div class="pricing-card">
+                    <h4>PAKIET Nᵒ 4<br><span
+                            style="font-family: var(--f-serif); text-transform: none; font-size: 1.5rem; font-style:italic;">"Wariat"</span>
+                    </h4>
+                    <ul>
+                        <li>Od przygotowań do 1.00 (max 13h)</li>
+                        <li>700 zdjęć z reportażu</li>
+                        <li>100 odbitek w drewnianym pudełku</li>
+                        <li>Galeria online na 12 miesięcy zabezpieczona hasłem</li>
+                        <li><strong>50 ZDJĘĆ Z NARZECZEŃSKIEJ ZAMIAST PLENERU</strong></li>
+                        <li><strong>10 ODBITEK Z NARZECZEŃSKIEJ</strong></li>
+                    </ul>
+                    <div class="price">7 200 PLN</div>
+                    <div class="zadatek">+ 1 000 PLN (ZADATEK)</div>
+                    <div class="desc">Jeśli wolicie mieć sesję narzeczeńską zamiast sesji plenerowej ślubnej, możemy
+                        oczywiście je zamienić. Wtedy po prostu w drugim pakiecie macie reportaż ślubny oraz sesję
+                        narzeczeńska.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXTRA SERVICES - NEW FINEZYJNA WERSJA -->
+        <section style="padding: 15vh 5vw; background: var(--bg); color: var(--text);">
+            <div style="text-align: center; margin-bottom: 8rem;">
+                <h3 style="font-family: var(--f-sans); font-size: 1rem; letter-spacing: 4px; opacity: 0.5;">A CO JEŚLI
+                    ZABRAKNIE?</h3>
+                <h2
+                    style="font-family: var(--f-serif); font-size: clamp(3rem, 6vw, 6rem); margin-top: 1rem; font-style: italic;">
+                    EXTRA RZECZY</h2>
+            </div>
+
+            <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 6rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 3rem; flex-wrap: wrap; gap: 2rem;"
+                    class="fade-in">
+                    <div style="font-family: var(--f-sans); font-size: 2rem; color: var(--accent);">01</div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <h4
+                            style="font-family: var(--f-serif); font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Dodatkowa Godzinka</h4>
+                        <p style="font-size: 1.2rem; line-height: 1.6; opacity: 0.8; font-family: var(--f-serif);">
+                            Przygotowania zaczynają się wcześniej a może planujecie atrakcje po 1 w nocy? Wiecie, że
+                            będzie grubo? 😎</p>
+                    </div>
+                    <div
+                        style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; flex: 1; text-align: right; min-width: 150px;">
+                        300 ZŁ</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 3rem; flex-wrap: wrap; gap: 2rem;"
+                    class="fade-in">
+                    <div style="font-family: var(--f-sans); font-size: 2rem; color: var(--accent);">02</div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <h4
+                            style="font-family: var(--f-serif); font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Odbitki</h4>
+                        <p style="font-size: 1.2rem; line-height: 1.6; opacity: 0.8; font-family: var(--f-serif);">
+                            Chcecie wydrukować więcej zdjęć? 100 to za mało, a może prezent rodzicom?</p>
+                    </div>
+                    <div
+                        style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; flex: 1; text-align: right; min-width: 150px;">
+                        3 ZŁ/SZT</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 3rem; flex-wrap: wrap; gap: 2rem;"
+                    class="fade-in">
+                    <div style="font-family: var(--f-sans); font-size: 2rem; color: var(--accent);">03</div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <h4
+                            style="font-family: var(--f-serif); font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Pudełko drewniane</h4>
+                        <p style="font-size: 1.2rem; line-height: 1.6; opacity: 0.8; font-family: var(--f-serif);">
+                            Genialna opcja na prezent rodzicom, wtedy będą mogli oglądać Wsze zdjęcia codziennie 🤎 🔥 W
+                            pudełku oczywiście 100 odbitek, które wybraliście 🫶🏼</p>
+                    </div>
+                    <div
+                        style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; flex: 1; text-align: right; min-width: 150px;">
+                        400 ZŁ</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 3rem; flex-wrap: wrap; gap: 2rem;"
+                    class="fade-in">
+                    <div style="font-family: var(--f-sans); font-size: 2rem; color: var(--accent);">04</div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <h4
+                            style="font-family: var(--f-serif); font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Paliwko</h4>
+                        <p style="font-size: 1.2rem; line-height: 1.6; opacity: 0.8; font-family: var(--f-serif);">
+                            Dojazd na miejsce ślubu i wesela organizuję we własnym zakresie.</p>
+                    </div>
+                    <div
+                        style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; flex: 1; text-align: right; min-width: 150px;">
+                        W CENIE 🤙🏼</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 15vh; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 5vw;">
+                <img src="images/ASPEKT-pEK-216.webp" style="width: 100%; height: 500px; object-fit: cover;">
+            </div>
+        </section>
+
+        <!-- POZA PAKIETEM -->
+        <section style="padding: 15vh 5vw; background: #050505; color: #fff; position: relative; overflow: hidden;">
+            <div style="text-align: left; padding: 0 5vw;">
+                <h3 style="font-family: var(--f-sans); font-size: 1rem; letter-spacing: 4px; opacity: 0.3;">SESJE
+                    DODATKOWE</h3>
+                <h2
+                    style="font-family: var(--f-serif); font-size: clamp(3rem, 7vw, 7rem); margin: 2rem 0; line-height: 1;">
+                    POZA PAKIETEM</h2>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; padding: 5vh 5vw; align-items: stretch;">
+                <div style="flex: 1; min-width: 300px; border: 1px solid rgba(255,255,255,0.1); padding: 4rem; position: relative;"
+                    class="pricing-card">
+                    <div
+                        style="font-family: var(--f-serif); font-size: 4rem; font-style: italic; opacity: 0.1; position: absolute; top: 10%; right: 10%;">
+                        01</div>
+                    <h4
+                        style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 2rem;">
+                        SESJA NARZECZEŃSKA</h4>
+                    <p
+                        style="font-family: var(--f-serif); font-size: 1.2rem; line-height: 1.6; opacity: 0.8; margin-bottom: 3rem;">
+                        Podobają Wam się moje sesje narzeczeńskie, a może chcecie sprawdzić czy nadaję się na Waszego
+                        fotografa ślubnego? Podejmuję wyzwanie 😅 😎</p>
+                    <div style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; color: var(--bg);">1
+                        000 ZŁ</div>
+                </div>
+
+                <div style="flex: 1; min-width: 300px; border: 1px solid rgba(255,255,255,0.1); padding: 4rem; position: relative;"
+                    class="pricing-card">
+                    <div
+                        style="font-family: var(--f-serif); font-size: 4rem; font-style: italic; opacity: 0.1; position: absolute; top: 10%; right: 10%;">
+                        02</div>
+                    <h4
+                        style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 2rem;">
+                        PLENER ŚLUBNY</h4>
+                    <p
+                        style="font-family: var(--f-serif); font-size: 1.2rem; line-height: 1.6; opacity: 0.8; margin-bottom: 3rem;">
+                        Macie niedosyt po weselu, a znudził Wam się Wasz fotograf ślubny? A może po prostu marzycie o
+                        plenerkowej przygodzie ze mną? BARDZO CHĘTNIE 🤎</p>
+                    <div style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px; color: var(--bg);">1
+                        300 ZŁ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="reviews-section" style="background-color: var(--accent); color: #fff;">
+            <h2
+                style="font-family: var(--f-serif); font-size: 4rem; text-align: center; margin-bottom: 5rem; font-style: italic;">
+                O P I N I E .</h2>
+
+            <div class="review-block">
+                <p>"Krzysiek robił zdjęcia na moim weselu. Mimo, że wpadłam na jego profil przypadkowo to chyba był nam
+                    pisany. To jak przebiegła nasza współpraca to bajka. Nie należę do osób pewnych siebie przed
+                    aparatem a Krzysiek poprowadził nas tak, że wiedzieliśmy co i jak mamy robić. Mimo, że nie
+                    widzieliśmy się nigdy wcześniej na żywo od razu złapaliśmy super kontakt. Od gości dostaliśmy
+                    mnóstwo komplementów... Głowa Krzyśka jest pełna niekończących się pomysłów na foty."</p>
+                <div class="author">OLA & TOMEK<br><span
+                        style="font-family: var(--f-serif); text-transform:none; opacity:0.7;">(Pastelove Pola,
+                        Warszawa)</span></div>
+            </div>
+
+            <div class="review-block">
+                <p>"Krzyś to mistrz w swojej dziedzinie. Jego zdjęcia to magia. Potrafi uchwycić chwile idealne, nawet
+                    tak nie fotogenicznych osób jak my. Praca z nim to czysta przyjemność. Będziemy polecać jego
+                    wszystkim naszym znajomym i rodzinie... Dziękujemy bardzo"</p>
+                <div class="author">NATALKA & PRZEMEK<br><span
+                        style="font-family: var(--f-serif); text-transform:none; opacity:0.7;">(Lipcowy Ogród,
+                        Białystok)</span></div>
+            </div>
+
+            <div class="review-block">
+                <p>"Jesteśmy totalnie zachwyceni współpracą z Krzysztofem. Jest on przede wszystkim człowiekiem pełnym
+                    pasji i miłości do swojej pracy. Zdjęcia z naszego wesela są idealne i wymarzone. Krzysztof potrafi
+                    uchwycić najpiękniejsze emocje, ma wiele kreatywnych pomysłów. Jest osobą bardzo wyluzowaną, ale
+                    również bardzo profesjonalną..."</p>
+                <div class="author">EWELINA & BARTOSZ<br><span
+                        style="font-family: var(--f-serif); text-transform:none; opacity:0.7;">(Oranżeria Nowosiółki,
+                        Białystok)</span></div>
+            </div>
+
+            <div class="review-block">
+                <p>"Krzyś to absolutny mistrz w swoim fachu Jego zdjęcia są nie tylko piękne, ale także pełne emocji.
+                    Jednak to, co wyróżnia go spośród innych fotografów, to jego zdolność do tworzenia niesamowitej
+                    atmosfery. Był tak przyjazny i pomocny, że czuliśmy się niesamowicie swobodnie... To nie tylko
+                    profesjonalista, ale także wspaniały człowiek."</p>
+                <div class="author">KAMILA & KRZYŚ<br><span
+                        style="font-family: var(--f-serif); text-transform:none; opacity:0.7;">(Lipcowy Ogród,
+                        Białystok)</span></div>
+            </div>
+        </section>
+
+        <!-- RECOMMENDATIONS -->
+        <section class="dark-section" style="padding-bottom: 5vh;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h3 style="font-family: var(--f-sans); font-size: 1rem; letter-spacing: 4px; opacity: 0.5;">04 /
+                    POLECANKI</h3>
+                <h2 style="font-family: var(--f-serif); font-size: 3rem; margin-bottom: 2rem; margin-top: 1rem;">KOGO
+                    TAM JESZCZE WZIĄĆ?</h2>
+                <p
+                    style="font-size: 1.2rem; line-height: 1.6; font-family: var(--f-serif); opacity: 0.8; margin-bottom: 5rem;">
+                    Świat wielki, a branża długa i szeroka.. Dlatego specjalnie dla Was wyszczególniłem najlepszych z
+                    najlepszych, którzy z wyjątkową starannością zaopiekują się razem ze mną o ten wyjątkowy dzień i nie
+                    będziemy się przepychać na weselu 😅<br><br>Jako fotograf ślubny, miałem przyjemność współpracować z
+                    wieloma DJ-ami oraz kamerzystami podczas wesel i chciałbym dzielić się z wami moimi doświadczeniami
+                    i poleceniami 🫶🏼</p>
+
+                <!-- FEATURED VIDEOGRAPHER -->
+                <div
+                    style="margin: 5rem 0; border: 1px solid rgba(255,255,255,0.2); padding: 3rem 0; text-align: left; display: flex; flex-direction: column; gap: 2rem;">
+                    <h3
+                        style="font-family: var(--f-sans); font-size: 1.8rem; letter-spacing: 2px; text-align: center; margin-bottom: 2rem; padding: 0 3rem;">
+                        NAJWIĘKSZY FILMOWY ŚWIR NA PÓŁNOCNEJ PÓŁKULI</h3>
+                    <div
+                        style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap; justify-content: center; padding: 0 3rem;">
+                        <div style="flex: 1; min-width: 250px; max-width: 400px;">
+                            <img src="images/ASPEKT-pEK-218.webp" alt="Polecany Filmowiec"
+                                style="width: 100%; height: auto; object-fit: cover; filter: grayscale(100%);">
+                        </div>
+                        <div
+                            style="flex: 2; font-size: 1.2rem; line-height: 1.8; font-family: var(--f-serif); opacity: 0.9; min-width: 300px;">
+                            <p style="font-family: var(--f-sans); font-size: 1.2rem; margin-bottom: 1rem; color: #fff;">
+                                DIANA ZARACHOWICZ</p>
+                            <p>Najbardziej kreatywna dusza jaką znam, cudowne luźne podejście w pracy połączone z mnóstwem pomysłów ukazujących prawdziwych Was kończąc na finezyjnym, niepowtarzalnym montazu Waszych wpomnień.</p><br>
+                            <p>Zdecydowanie mój ulubiony filmowiec, uwielbiam jej każdy film. Dacie nam razem popracować?</p>
+                        </div>
+                    </div>
+
+                    <!-- YouTube Video EDGE TO EDGE (16:9 Aspect Ratio) -->
+                    <div
+                        style="width: 100vw; position: relative; margin-left: calc(-50vw + 50%); margin-top: 2rem; background: #000; padding-bottom: 56.25%;">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            src="https://www.youtube.com/embed/WIpTJc2Eryg?si=R1kdMrdPmtJQVbdy"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <h3 style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px;">FILMOWCY</h3>
+                <div class="djs-grid">
+                    BLACKBUTTON<br>
+                    SAMOJLIK MEDIA<br>
+                    MEGA FILMS<br>
+                    D I A N A Z A R A C H O W I C Z<br>
+                    SLUBNE FILMY<br>
+                    EMOTION<br>
+                    WIDZIMY SIĘ W KADRZE<br>
+                    VIDEO ISLAND<br>
+                    ADRIAN ZALEWSKI<br>
+                    SIĘ KRĘCI<br>
+                    M STUDIO<br>
+                    FABRYKA SNÓW<br>
+                    MEDIA NA LUZIE<br>
+                    AVOKADO
+                </div>
+
+                <div style="margin: 4rem 0;"><img src="images/ASPEKT-pEK-225.webp" alt="Wedding Vibe"
+                        style="width: 100%; height: auto; opacity: 0.8;"></div>
+
+                <h3 style="font-family: var(--f-sans); font-size: 1.5rem; letter-spacing: 2px;">DJ's</h3>
+                <div class="djs-grid">
+                    ADAM JURKOWSKI<br>
+                    WOJTEK GRODZKI<br>
+                    KUBA PILAT<br>
+                    KAROL KUNIKOWSKI<br>
+                    MICHAŁ EJSMONT<br>
+                    ROBERT SUCHOWIERSKI<br>
+                    MARCIN SIEMIENIUK<br>
+                    TROCHĘ INNY DJ<br>
+                    PAWEŁ BAŁTYK<br>
+                    MICHAŁ DĄBROWSKI<br>
+                    KUBA KAMIŃSKI<br>
+                    LESZEK GRZEGORCZYK<br>
+                    DAMIAN GARDOCKI<br>
+                    WODZIREJ PLUS<br>
+                    MATEUSZ BABIŃSKI<br>
+                    KRZYSZTOF CJ
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER & CTA - CONTROVERSIAL MASSIVE DESIGN -->
+        <section
+            style="min-height: 100vh; background-color: var(--accent); color: #fff; display: flex; flex-direction: column; justify-content: space-between; padding: 15vh 5vw 5vh 5vw; position: relative; overflow: hidden;">
+            <div style="text-align: center; margin-top: auto;">
+                <h2
+                    style="font-family: var(--f-serif); font-size: clamp(4rem, 12vw, 15rem); line-height: 0.8; text-transform: uppercase; margin-bottom: 2rem; letter-spacing: -2px;">
+                    DZIĘKI<br><span style="font-family: var(--f-serif); font-style: italic;">za uwagę</span></h2>
+
+                <div
+                    style="font-size: 1.5rem; line-height: 1.6; max-width: 800px; margin: 4rem auto; opacity: 0.9; position: relative; z-index: 5;">
+                    <p>Jest mi ultra niezmiernie miło, że zainteresowaliście się moją pracą i mam nadzieję, że spotkamy
+                        się w Wasz WIELKI DZIEŃ.</p><br>
+                    <p>Oto co mogę Wam zaoferować, oprócz kupy pozytywnej energii ze swojej strony. Mam nadzieję, że
+                        widzimy się! :)</p>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 3rem; position: relative; z-index: 5;">
+                <div>
+                    <p
+                        style="font-family: var(--f-sans); font-size: 1rem; letter-spacing: 4px; margin-bottom: 2rem; opacity: 0.5;">
+                        DO ZOBACZENIA?</p>
+                    <a href="contact.html"
+                        style="font-family: var(--f-sans); background: #fff; color: var(--accent); padding: 20px 50px; text-decoration: none; font-size: 1.2rem; letter-spacing: 3px;"
+                        data-hover="text">N A P I S Z D O M N I E</a>
+                </div>
+                <div
+                    style="text-align: right; font-family: var(--f-sans); font-size: 1rem; letter-spacing: 2px; line-height: 2;">
+                    <p>IG: @ASPEKTFOTOGRAFIA</p>
+                    <p>FB: @ASPEKTFOTOGRAFIA</p>
+                    <p
+                        style="font-family: var(--f-serif); font-style:italic; font-size: 1.5rem; margin-top: 1rem; text-transform:lowercase;">
+                        krzysiek.ilendo@gmail.com</p>
+                    <p style="font-family: var(--f-serif); font-style:italic; font-size: 1.5rem;">📞 668 566 898</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="portfolio-masonry" style="margin-top: 0; padding-top: 20vh; padding-bottom: 20vh; background: var(--bg);">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.09.50.png" alt="Zrzut ekranu z canvy 1" class="masonry-item p1" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.10.03.png" alt="Zrzut ekranu z canvy 2" class="masonry-item p2" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.10.15.png" alt="Zrzut ekranu z canvy 3" class="masonry-item p3" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.10.44.png" alt="Zrzut ekranu z canvy 4" class="masonry-item p4" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.11.02.png" alt="Zrzut ekranu z canvy 5" class="masonry-item p5" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.11.28.png" alt="Zrzut ekranu z canvy 6" class="masonry-item p6" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.11.38.png" alt="Zrzut ekranu z canvy 7" class="masonry-item p7" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.12.17.png" alt="Zrzut ekranu z canvy 8" class="masonry-item p8" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.12.29.png" alt="Zrzut ekranu z canvy 9" class="masonry-item p9" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.13.01.png" alt="Zrzut ekranu z canvy 10" class="masonry-item p10" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.13.16.png" alt="Zrzut ekranu z canvy 11" class="masonry-item p11" data-hover="image">
+            <img src="offer/Zrzut ekranu 2026-04-14 o 02.13.31.png" alt="Zrzut ekranu z canvy 12" class="masonry-item p12" data-hover="image">
+        </section>
+
+        <footer class="site-footer" style="background:#000; color: #fff;">WEB CR8 KRZYSZTOF ILENDO &copy;<br>FOTOGRAF
+            BIAŁYSTOK WARSZAWA</footer>
+    </div>
+</body>
+
+</html>
