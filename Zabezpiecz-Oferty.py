@@ -37,6 +37,7 @@ JS_TEMPLATE = """
                 
                 if (html.includes('id="main-content"')) {
                     document.getElementById("main-content-wrapper").innerHTML = html;
+                    document.getElementById("main-content").style.display = "block";
                     sessionStorage.setItem("oferta_unlocked_{year}", "true");
                     sessionStorage.setItem("oferta_pwd_{year}", pwd);
                     unlockContent();
