@@ -7,14 +7,5 @@
     { "source": "/opowiesci", "destination": "/stories.html" },
     { "source": "/opinie", "destination": "/opinions.html" },
     { "source": "/kontakt", "destination": "/contact.html" }
-  ],
-  "redirects": [
-    { "source": "/index.html", "destination": "/stronaglowna", "permanent": true },
-    { "source": "/", "destination": "/stronaglowna", "permanent": true },
-    { "source": "/about.html", "destination": "/omnie", "permanent": true },
-    { "source": "/portfolio.html", "destination": "/portfolio", "permanent": true },
-    { "source": "/stories.html", "destination": "/opowiesci", "permanent": true },
-    { "source": "/opinions.html", "destination": "/opinie", "permanent": true },
-    { "source": "/contact.html", "destination": "/kontakt", "permanent": true }
   ]
 }

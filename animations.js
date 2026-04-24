@@ -314,3 +314,8 @@ window.initGlobalAnimations = function() {
 
     setTimeout(() => { ScrollTrigger.refresh(); }, 500);
 };
+
+// Kosmetyczne podmiana czystego adresu glownego na stronaglowna bez tworzenia petli Vercel Routing
+if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    window.history.replaceState(null, '', '/stronaglowna');
+}
