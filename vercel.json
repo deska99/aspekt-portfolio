@@ -1,11 +1,11 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/stronaglowna", "destination": "/index.html" },
-    { "source": "/omnie", "destination": "/about.html" },
-    { "source": "/portfolio", "destination": "/portfolio.html" },
-    { "source": "/opowiesci", "destination": "/stories.html" },
-    { "source": "/opinie", "destination": "/opinions.html" },
-    { "source": "/kontakt", "destination": "/contact.html" }
+    { "source": "/stronaglowna", "destination": "/index" },
+    { "source": "/omnie", "destination": "/about" },
+    { "source": "/portfolio", "destination": "/portfolio" },
+    { "source": "/opowiesci", "destination": "/stories" },
+    { "source": "/opinie", "destination": "/opinions" },
+    { "source": "/kontakt", "destination": "/contact" }
   ]
 }
