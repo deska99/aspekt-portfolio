@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aspekt-fotografia.vercel.app/sitemap.xml
