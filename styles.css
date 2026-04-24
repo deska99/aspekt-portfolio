@@ -1437,3 +1437,15 @@ body {
         font-size: 1.1rem;
     }
 }
+
+/* Oferta Add-ons Mobile Fix */
+@media (max-width: 650px) {
+    .pricing-card {
+        padding: 2rem !important;
+        min-width: 100% !important;
+    }
+    .pricing-card h4 {
+        font-size: 1.2rem !important;
+        word-break: break-word;
+    }
+}
