@@ -9,7 +9,7 @@ from Crypto.Hash import SHA256
 # Słownik plików i ich haseł
 PASSWORDS = {
     'oferta-2026.source.html': 'essa2026',
-    'oferta-2027.source.html': 'sztos2027',
+    'oferta-2027.source.html': 'szpont2027',
     'oferta-2028.source.html': 'smash2028'
 }
 
